@@ -29,4 +29,43 @@ public class Statistic {
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
+    public int getStatisticId() {
+        return statisticId;
+    }
+
+    public void setStatisticId(int statisticId) {
+        this.statisticId = statisticId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
