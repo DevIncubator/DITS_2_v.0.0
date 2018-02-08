@@ -85,7 +85,6 @@ CREATE TABLE `role` (
     PRIMARY KEY (`literatureId`),
     UNIQUE INDEX `literatureId_UNIQUE` (`literatureId` ASC),
     FOREIGN KEY (`questionId`) REFERENCES question (`questionId`)
-
   );
 
 INSERT INTO `dits`.`role` (roleId, tutor) VALUES (1, 1);  /*под вопросом второе поле, точно ли binary?*/
