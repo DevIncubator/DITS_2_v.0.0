@@ -2,6 +2,49 @@ CREATE DATABASE `dits` ;
 
 USE `dits`;
 
+CREATE TABLE `role` (
+  `roleId` INT NOT NULL,
+  `user` BINARY NULL,
+  `tutor` BINARY NULL,
+  `admin` BINARY NULL,
+  PRIMARY KEY (`roleId`));
+
+DROP TABLE IF EXISTS `topic`;
+CREATE TABLE `topic` (
+      `topicId` int(11) NOT NULL AUTO_INCREMENT,
+      `description` varchar(255) DEFAULT NULL,
+      `name` varchar(255) DEFAULT NULL,
+      PRIMARY KEY (`topicId`)
+    );
+
+CREATE TABLE `user` (
+      `userId` INT NOT NULL AUTO_INCREMENT,
+      `firstName` VARCHAR(45) NULL,
+      `lastName` VARCHAR(45) NULL,
+      `login` VARCHAR(45) NOT NULL,
+      `password` VARCHAR(45) NOT NULL,
+      `roleId` INT NOT NULL,
+      PRIMARY KEY (`userId`), FOREIGN KEY (`roleId`) REFERENCES role (`roleId`));
+
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE `test` (
+          `testId` int(11) NOT NULL AUTO_INCREMENT,
+          `name` varchar(255) DEFAULT NULL,
+          `description` varchar(255) DEFAULT NULL,
+          `topicId` int(11) NOT NULL,
+          PRIMARY KEY (`testId`),
+          FOREIGN KEY (`topicId`) REFERENCES `topic` (`topicId`)
+        );
+
+DROP TABLE IF EXISTS `question`;
+          CREATE TABLE `question` (
+            `questionId` int(11) NOT NULL AUTO_INCREMENT,
+            `description` varchar(45) DEFAULT NULL,
+            `testId` int(11) NOT NULL,
+            PRIMARY KEY (`questionId`),
+            FOREIGN KEY (`testId`) REFERENCES `test` (`testId`)
+          );
+
 CREATE TABLE `statistic` (
   `statisticId` INT NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
@@ -12,53 +55,7 @@ CREATE TABLE `statistic` (
   FOREIGN KEY (`questionId`) REFERENCES question (`questionId`),
   FOREIGN KEY (`userId`) REFERENCES user (`userId`));
 
-CREATE TABLE `user` (
-  `userId` INT NOT NULL AUTO_INCREMENT,
-  `firstName` VARCHAR(45) NULL,
-  `lastName` VARCHAR(45) NULL,
-  `login` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `roleId` INT NOT NULL,
-  PRIMARY KEY (`userId`), FOREIGN KEY (`roleId`) REFERENCES role (`roleId`));
-
-CREATE TABLE `role` (
-  `roleId` INT NOT NULL,
-  `user` BINARY NULL,
-  `tutor` BINARY NULL,
-  `admin` BINARY NULL,
-  PRIMARY KEY (`roleId`));
-
-  CREATE DATABASE  IF NOT EXISTS `dits`;
-  USE `dits`;
-
-  DROP TABLE IF EXISTS `topic`;
-  CREATE TABLE `topic` (
-    `topicId` int(11) NOT NULL AUTO_INCREMENT,
-    `description` varchar(255) DEFAULT NULL,
-    `name` varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`topicId`)
-  );
-
-  DROP TABLE IF EXISTS `test`;
-  CREATE TABLE `test` (
-    `testId` int(11) NOT NULL AUTO_INCREMENT,
-    `name` varchar(255) DEFAULT NULL,
-    `description` varchar(255) DEFAULT NULL,
-    `topicId` int(11) NOT NULL,
-    PRIMARY KEY (`testId`),
-    FOREIGN KEY (`topicId`) REFERENCES `topic` (`topicId`)
-  );
-
-  DROP TABLE IF EXISTS `question`;
-  CREATE TABLE `question` (
-    `questionId` int(11) NOT NULL AUTO_INCREMENT,
-    `description` varchar(45) DEFAULT NULL,
-    `testId` int(11) NOT NULL,
-    PRIMARY KEY (`questionId`),
-    FOREIGN KEY (`testId`) REFERENCES `test` (`testId`)
-  );
-
-  CREATE TABLE `dits`.`answer` (
+CREATE TABLE `dits`.`answer` (
     `answerId` INT NOT NULL AUTO_INCREMENT,
     `description` VARCHAR(45) NULL,
     `correct` TINYINT(1) NULL DEFAULT 0,
@@ -68,17 +65,7 @@ CREATE TABLE `role` (
     FOREIGN KEY (`questionId`) REFERENCES question (`questionId`)
   );
 
-
-  CREATE TABLE `dits`.`link` (
-    `linkId` INT NOT NULL,
-    `link` VARCHAR(45) NULL,
-    `literatureId` INT NOT NULL,
-    PRIMARY KEY (`linkId`),
-    UNIQUE INDEX `linkId_UNIQUE` (`linkId` ASC),
-    FOREIGN KEY (`literatureId`) REFERENCES literature (`literatureId`)
-  );
-
-  CREATE TABLE `dits`.`literature` (
+CREATE TABLE `dits`.`literature` (
     `literatureId` INT NOT NULL AUTO_INCREMENT,
     `description` VARCHAR(45) NULL,
     `questionId` INT NOT NULL,
@@ -87,25 +74,23 @@ CREATE TABLE `role` (
     FOREIGN KEY (`questionId`) REFERENCES question (`questionId`)
   );
 
+CREATE TABLE `dits`.`link` (
+    `linkId` INT NOT NULL,
+    `link` VARCHAR(45) NULL,
+    `literatureId` INT NOT NULL,
+    PRIMARY KEY (`linkId`),
+    UNIQUE INDEX `linkId_UNIQUE` (`linkId` ASC),
+    FOREIGN KEY (`literatureId`) REFERENCES literature (`literatureId`)
+  );
+
 INSERT INTO `dits`.`role` (roleId, tutor) VALUES (1, 1);  /*под вопросом второе поле, точно ли binary?*/
 INSERT INTO `dits`.`role` (roleId, user) VALUES (2, 1);
 
-INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('1', 'John', 'Fedor', 'jo', '123', '1');
-INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('2', 'Bob', 'Blob', 'bobby', '321', '2');
-
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('1', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('2', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('3', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('4', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('5', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('6', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('7', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('8', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('9', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('10', '2017-12-31', '0', '2', '2');
-
 INSERT INTO `dits`.`topic` (`topicId`, `description`, `name`) VALUES ('1', 'description1', 'topic1');
 INSERT INTO `dits`.`topic` (`topicId`, `description`, `name`) VALUES ('2', 'description2', 'topic2');
+
+INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('1', 'John', 'Fedor', 'jo', '123', '1');
+INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('2', 'Bob', 'Blob', 'bobby', '321', '2');
 
 INSERT INTO `dits`.`test` (`testId`, `name`, `description`, `topicId`) VALUES ('1', 'test1', 'description1', '1');
 INSERT INTO `dits`.`test` (`testId`, `name`, `description`, `topicId`) VALUES ('2', 'test2', 'description2', '1');
@@ -133,6 +118,17 @@ INSERT INTO `dits`.`question` (`questionId`, `description`, `testId`) VALUES ('1
 INSERT INTO `dits`.`question` (`questionId`, `description`, `testId`) VALUES ('19', 'question19', '4');
 INSERT INTO `dits`.`question` (`questionId`, `description`, `testId`) VALUES ('20', 'question20', '4');
 
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('1', '2017-12-31', '1', '1', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('2', '2017-12-31', '1', '1', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('3', '2017-12-31', '1', '1', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('4', '2017-12-31', '1', '1', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('5', '2017-12-31', '1', '1', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('6', '2017-12-31', '1', '2', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('7', '2017-12-31', '1', '2', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('8', '2017-12-31', '1', '2', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('9', '2017-12-31', '1', '2', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('10', '2017-12-31', '0', '2', '2');
+
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('1', 'description of literature', '1');
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('2', 'description of literature', '2');
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('3', 'description of literature', '3');
@@ -144,13 +140,13 @@ INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VA
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('9', 'description of literature', '9');
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('10', 'description of literature', '10');
 
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('1', 'asdfasdf', '1');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('2', 'asdfasdf', '2');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('3', 'asdfasdf', '3');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('4', 'asdfasdf', '4');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('5', 'asdfasdf', '5');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('6', 'asdfasdf', '6');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('7', 'asdfasdf', '7');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('8', 'asdfasdf', '8');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('9', 'asdfasdf', '9');
-INSERT INTO 'dits'.'link' ('linkId', 'link', 'literatureId') VALUES ('10', 'asdfasdf', '10');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('1', 'asdasdf', '1');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('2', 'asdasdf', '2');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('3', 'asdasdf', '3');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('4', 'asdasdf', '4');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('5', 'asdasdf', '5');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('6', 'asdasdf', '6');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('7', 'asdasdf', '7');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('8', 'asdasdf', '8');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('9', 'asdasdf', '9');
+INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('10', 'asdasdf', '10');
