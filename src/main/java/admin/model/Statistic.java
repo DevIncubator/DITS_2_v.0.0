@@ -1,5 +1,7 @@
 package admin.model;
 
+import tutor.model.Question;
+
 import javax.persistence.*;
 import java.util.Date;
 
