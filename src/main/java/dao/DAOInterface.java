@@ -1,15 +1,18 @@
 package dao;
 
+import java.util.List;
+
 /**
  * Created by Dmitry on 08.02.2018.
  */
 public interface DAOInterface<T> {
 
-    void create(T object);
+    public void create(T object);
 
-    T getById(int id);
+    public T getById(int id);
 
-    void update(T object);
+    public void update(T object);
 
-    void delete(int id);
+    public void delete(int id);
+
 }

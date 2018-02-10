@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Link {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "linkId")
     private int linkId;
 
@@ -14,7 +15,7 @@ public class Link {
     private String link;
 
     @Column(name = "literatureId")
-    @JoinColumn(referencedColumnName = "literatureId")
+    @PrimaryKeyJoinColumn
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Literature literatureId;
 

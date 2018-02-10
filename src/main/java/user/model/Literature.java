@@ -5,6 +5,7 @@ import javax.persistence.*;
 public class Literature {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "literatureId")
     private int literatureId;
 
@@ -12,7 +13,7 @@ public class Literature {
     private String description;
 
     @Column(name = "questionId")
-    @JoinColumn(referencedColumnName = "questionId")
+    @PrimaryKeyJoinColumn
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Question questionId;
 
