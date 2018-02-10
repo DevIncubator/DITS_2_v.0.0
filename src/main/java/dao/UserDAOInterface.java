@@ -1,6 +1,6 @@
 package dao;
 
-import admin.model.User;
+import entity.User;
 
 /**
  * Created by Dmitry on 08.02.2018.

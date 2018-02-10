@@ -1,11 +1,12 @@
-package tutor.dao;
+package dao.daoImpl;
 
+import dao.AbstractDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import tutor.model.Entity;
+import entity.Entity;
 
 import java.util.List;
 

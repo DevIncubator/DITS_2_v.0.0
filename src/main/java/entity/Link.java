@@ -1,6 +1,7 @@
-package user.model;
+package entity;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
 @Table(name = "link")

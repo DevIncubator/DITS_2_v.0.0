@@ -1,6 +1,6 @@
 package dao;
 
-import admin.model.Role;
+import entity.Role;
 
 /**
  * Created by Dmitry on 08.02.2018.

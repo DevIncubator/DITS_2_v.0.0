@@ -1,6 +1,6 @@
 package dao;
 
-import user.model.Literature;
+import entity.Literature;
 
 public interface LiteratureDAOInterface extends DAOInterface<Literature> {
 }

@@ -1,8 +1,8 @@
-package tutor.service;
+package service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tutor.dao.AbstractDAO;
+import dao.AbstractDAO;
 
 import java.util.List;
 
