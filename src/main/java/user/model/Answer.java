@@ -1,6 +1,8 @@
 package user.model;
 
 
+import tutor.model.Question;
+
 import javax.persistence.*;
 
 @Entity
