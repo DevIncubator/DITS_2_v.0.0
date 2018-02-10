@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import user.model.Link;
 
 @Repository
 public class LinkDAOImpl implements DAOInterface<Link> {

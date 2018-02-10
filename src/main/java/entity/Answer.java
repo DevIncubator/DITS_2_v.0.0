@@ -1,30 +1,37 @@
-package user.model;
+package entity;
 
-import tutor.model.Question;
+
+import entity.Question;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 
-public class Literature {
+@Entity
+@Table(name = "answer")
+public class Answer {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "literatureId")
-    private int literatureId;
+    @Column(name = "answerId", nullable = false)
+    private int answerId;
 
     @Column(name = "description")
     private String description;
 
+    @Column(name = "correct")
+    private boolean correct;
+
     @Column(name = "questionId")
-    @PrimaryKeyJoinColumn
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "questionId", nullable = false)
     private Question questionId;
 
-    public int getLiteratureId() {
-        return literatureId;
+    public int getAnswerId() {
+        return answerId;
     }
 
-    public void setLiteratureId(int literatureId) {
-        this.literatureId = literatureId;
+    public void setAnswerId(int answerId) {
+        this.answerId = answerId;
     }
 
     public String getDescription() {
@@ -33,6 +40,14 @@ public class Literature {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 
     public Question getQuestionId() {

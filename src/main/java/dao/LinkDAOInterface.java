@@ -1,6 +1,6 @@
 package dao;
 
-import user.model.Link;
+import entity.Link;
 
 public interface LinkDAOInterface extends DAOInterface<Link> {
 

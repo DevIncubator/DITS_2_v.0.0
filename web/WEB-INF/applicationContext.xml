@@ -40,9 +40,9 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
-                <beans:value>tutor.model.Question</beans:value>
-                <beans:value>tutor.model.Test</beans:value>
-                <beans:value>tutor.model.Topic</beans:value>
+                <beans:value>entity.Question</beans:value>
+                <beans:value>entity.Test</beans:value>
+                <beans:value>entity.Topic</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -54,10 +54,10 @@
         </beans:property>
     </beans:bean>
 
-    <beans:bean id="abstractDAO" class="tutor.dao.AbstractDAOImpl">
+    <beans:bean id="abstractDAO" class="dao.daoImpl.AbstractDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
-    <beans:bean id="abstractService" class="tutor.service.AbstractServiceImpl">
+    <beans:bean id="abstractService" class="service.AbstractServiceImpl">
         <beans:property name="abstractDAO" ref="abstractDAO"></beans:property>
     </beans:bean>
     <context:component-scan base-package="tutor" />

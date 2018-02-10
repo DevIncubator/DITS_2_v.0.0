@@ -1,6 +1,6 @@
-package tutor.dao;
+package dao;
 
-import tutor.model.Entity;
+import entity.Entity;
 
 import java.util.List;
 

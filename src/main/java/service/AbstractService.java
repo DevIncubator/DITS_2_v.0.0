@@ -1,6 +1,6 @@
-package tutor.service;
+package service;
 
-import tutor.model.Entity;
+import entity.Entity;
 
 import java.util.List;
 

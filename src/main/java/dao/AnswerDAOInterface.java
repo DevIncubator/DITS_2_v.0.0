@@ -1,6 +1,6 @@
 package dao;
 
-import user.model.Answer;
+import entity.Answer;
 
 public interface AnswerDAOInterface extends DAOInterface<Answer> {
 

@@ -1,4 +1,4 @@
-package tutor.model;
+package entity;
 
 import javax.persistence.*;
 import javax.persistence.Entity;

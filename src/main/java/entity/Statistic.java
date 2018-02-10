@@ -1,8 +1,7 @@
-package admin.model;
-
-import tutor.model.Question;
+package entity;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.Date;
 
 /**
