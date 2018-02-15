@@ -1,7 +1,10 @@
 package entity;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 
+@Entity
+@Table(name = "literature")
 public class Literature {
 
     @Id
