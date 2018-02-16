@@ -1,6 +1,7 @@
 package dao.daoImpl;
 
 import dao.DAOInterface;
+import entity.Link;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

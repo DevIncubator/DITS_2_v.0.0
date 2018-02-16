@@ -1,7 +1,7 @@
 package dao.daoImpl;
 
 import dao.AnswerDAOInterface;
-import user.model.Answer;
+import entity.Answer;
 
 public class AnswerDAOImpl implements AnswerDAOInterface {
 

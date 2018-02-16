@@ -1,6 +1,7 @@
 package dao.daoImpl;
 
 import dao.LiteratureDAOInterface;
+import entity.Literature;
 import org.springframework.stereotype.Repository;
 
 @Repository
