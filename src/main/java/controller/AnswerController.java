@@ -21,11 +21,11 @@ public class AnswerController {
         this.abstractService = abstractService;
     }
 
-    @RequestMapping(value = "/questions", method = RequestMethod.GET)
+    @RequestMapping(value = "/answers", method = RequestMethod.GET)
     public String listQuestions(Model model) {
         model.addAttribute("answer", new Answer());
         model.addAttribute("listAnswers", this.abstractService.getAll());
-        return "question";
+        return "answer";
     }
 
     //For add and update person both
@@ -48,7 +48,17 @@ public class AnswerController {
     public String removeAnswer(@PathVariable("answerId") int answerId){
 
         this.abstractService.remove(answerId);
-        return "redirect:/questions";
+        return "redirect:/answers";
     }
+
+   /* public static void main(String[] args) {
+        AnswerController ac = new AnswerController();
+        Answer answer = new Answer();
+        answer.setAnswerId(66);
+        answer.setCorrect(true);
+        answer.setDescription("test Description");
+        answer.setQuestionId(1);
+        System.out.println(ac.create(answer ));
+    }*/
 
 }
