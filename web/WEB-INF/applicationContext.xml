@@ -43,6 +43,13 @@
                 <beans:value>entity.Question</beans:value>
                 <beans:value>entity.Test</beans:value>
                 <beans:value>entity.Topic</beans:value>
+                <beans:value>entity.Link</beans:value>
+                <beans:value>entity.Literature</beans:value>
+                <beans:value>entity.Answer</beans:value>
+                <beans:value>entity.Statistic</beans:value>
+                <beans:value>entity.User</beans:value>
+                <beans:value>entity.Role</beans:value>
+
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -60,7 +67,7 @@
     <beans:bean id="abstractService" class="service.AbstractServiceImpl">
         <beans:property name="abstractDAO" ref="abstractDAO"></beans:property>
     </beans:bean>
-    <context:component-scan base-package="tutor" />
+    <context:component-scan base-package="*" />
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 

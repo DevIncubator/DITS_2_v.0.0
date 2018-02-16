@@ -34,7 +34,7 @@ public class QuestionController {
 		model.addAttribute("listQuestions", this.abstractService.getAll());
 		return "question";
 	}
-	
+
 	//For add and update person both
 	@RequestMapping(value= "/question/add", method = RequestMethod.POST)
 	public String create(@ModelAttribute("question") Question question){
