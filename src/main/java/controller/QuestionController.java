@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import entity.Question;
 import service.AbstractService;
 
-
 /**
  * Question controller
  *

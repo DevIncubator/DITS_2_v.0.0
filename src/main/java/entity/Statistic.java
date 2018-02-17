@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "statistic")
-public class Statistic {
+public class Statistic implements entity.Entity {
     @Id
     @GeneratedValue
     @Column(name = "statisticId", nullable = false)

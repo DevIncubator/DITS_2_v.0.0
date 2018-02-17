@@ -8,7 +8,7 @@ import javax.persistence.Entity;
  */
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements entity.Entity {
     @Id
     @GeneratedValue
     @Column(name = "roleId", nullable = false)
