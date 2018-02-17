@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66d16af7-72ab-4fb7-a34c-dbeddd356b46" name="Default" comment="Create UserController">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/dao/daoImpl/RoleDAOImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/dao/daoImpl/StatisticDAOImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/dao/daoImpl/UserDAOImpl.java" afterPath="" />
+    <list default="true" id="66d16af7-72ab-4fb7-a34c-dbeddd356b46" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DITS.iml" afterPath="$PROJECT_DIR$/DITS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/QuestionController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/QuestionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entity/Role.java" afterPath="$PROJECT_DIR$/src/main/java/entity/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entity/Statistic.java" afterPath="$PROJECT_DIR$/src/main/java/entity/Statistic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1060,7 +1051,7 @@
       <workItem from="1518796144082" duration="3500000" />
       <workItem from="1518800089986" duration="3706000" />
       <workItem from="1518869598336" duration="22000" />
-      <workItem from="1518871757227" duration="7321000" />
+      <workItem from="1518871757227" duration="7340000" />
     </task>
     <task id="LOCAL-00001" summary="All: delete .idea">
       <created>1518250610883</created>
@@ -1076,11 +1067,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518469770245</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Create UserController">
+      <created>1518881483869</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1518881483869</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25090000" />
+    <option name="totallyTimeSpent" value="25109000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1093,7 +1091,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
