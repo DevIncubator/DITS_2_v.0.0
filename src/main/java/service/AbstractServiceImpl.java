@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public class AbstractServiceImpl<E> implements AbstractService<E> {
 
-    private AbstractDAO abstractDAO;
+    private AbstractDAO<E> abstractDAO;
 
-    public void setAbstractDAO(AbstractDAO abstractDAO) {
+    public void setAbstractDAO(AbstractDAO<E> abstractDAO) {
         this.abstractDAO = abstractDAO;
     }
 
