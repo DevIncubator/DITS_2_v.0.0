@@ -16,19 +16,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CreateTestController {
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/create-test", method = RequestMethod.GET)
     public ModelAndView showForm() {
         return new ModelAndView("testHome", "test", new Test());
     }
 
-    @RequestMapping(value = "/addTest", method = RequestMethod.POST)
-    public String submit(@ModelAttribute("test")Test test,
+    @RequestMapping(value = "/create-test", method = RequestMethod.POST)
+    public String createTest(@ModelAttribute("test")Test test,
                          BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
         model.addAttribute("topic", test.getTopic());
         model.addAttribute("name", test.getName());
-        return "employeeView";
+        return "testView";
     }
 }

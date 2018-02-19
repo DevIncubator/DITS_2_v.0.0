@@ -18,7 +18,7 @@ public class HomeAdminController {
 
     @RequestMapping(value = "user/create", method = RequestMethod.GET)
     public String goToCreateUser() {
-        return "admin/create-user";
+         return "admin/create-user";
     }
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)
