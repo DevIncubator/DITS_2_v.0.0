@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import service.AbstractService;
 
 /**
  * Created by Dmitry on 18.02.2018.
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class CreateTestController {
+
+    private AbstractService abstractService;
 
     @RequestMapping(value = "/create-test", method = RequestMethod.GET)
     public ModelAndView showForm() {

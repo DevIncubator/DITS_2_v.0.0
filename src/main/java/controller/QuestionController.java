@@ -18,43 +18,43 @@ import service.AbstractService;
  */
 @Controller
 public class QuestionController {
-	
-	private AbstractService abstractService;
-	
-	@Autowired(required=true)
-	@Qualifier(value= "abstractService")
-	public void setAbstractService(AbstractService abstractService){
-		this.abstractService = abstractService;
-	}
-	
-	@RequestMapping(value = "/questions", method = RequestMethod.GET)
-	public String listQuestions(Model model) {
-		model.addAttribute("question", new Question());
-		model.addAttribute("listQuestions", this.abstractService.getAll());
-		return "question";
-	}
 
-	//For add and update person both
-	@RequestMapping(value= "/question/add", method = RequestMethod.POST)
-	public String create(@ModelAttribute("question") Question question){
-		
-		if(question.getQuestionId() == 0){
-			//new person, add it
-			this.abstractService.create(question);
-		}else{
-			//existing person, call update
-			this.abstractService.update(question);
-		}
-		
-		return "redirect:/questions";
-		
-	}
-	
-	@RequestMapping("/remove/{questionId}")
-    public String removeQuestion(@PathVariable("questionId") int questionId){
-		
+    private AbstractService abstractService;
+
+    @Autowired(required = true)
+    @Qualifier(value = "abstractService")
+    public void setAbstractService(AbstractService abstractService) {
+        this.abstractService = abstractService;
+    }
+
+    @RequestMapping(value = "/questions", method = RequestMethod.GET)
+    public String listQuestions(Model model) {
+        model.addAttribute("question", new Question());
+        model.addAttribute("listQuestions", this.abstractService.getAll());
+        return "question";
+    }
+
+    //For add and update person both
+    @RequestMapping(value = "/question/add", method = RequestMethod.POST)
+    public String create(@ModelAttribute("question") Question question) {
+
+        if (question.getQuestionId() == 0) {
+            //new person, add it
+            this.abstractService.create(question);
+        } else {
+            //existing person, call update
+            this.abstractService.update(question);
+        }
+
+        return "redirect:/questions";
+
+    }
+
+    @RequestMapping("/remove/{questionId}")
+    public String removeQuestion(@PathVariable("questionId") int questionId) {
+
         this.abstractService.remove(questionId);
         return "redirect:/questions";
     }
-	
+
 }

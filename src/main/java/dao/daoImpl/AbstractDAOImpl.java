@@ -37,7 +37,7 @@ public class AbstractDAOImpl<E extends Entity> implements AbstractDAO<E> {
     @Override
     public List<E> getAll() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<E> entityList = session.createQuery("from Entity").list();
+        List<E> entityList = session.createQuery("from entity").list();
         for (E entity : entityList) {
             logger.info("Question List::" + entity);
         }

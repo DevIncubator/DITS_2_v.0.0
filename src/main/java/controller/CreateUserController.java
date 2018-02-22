@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import service.AbstractServiceImpl;
 
 /**
  * Created by Dmitry on 19.02.2018.
@@ -15,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CreateUserController {
 
-    @RequestMapping(value = "/create-user", method = RequestMethod.GET)
+    AbstractServiceImpl<User> abstractService;
+
+    @RequestMapping(value = "create-user", method = RequestMethod.GET)
     public ModelAndView showForm() {
         return new ModelAndView("UserHome", "user", new User());
     }
@@ -26,6 +29,9 @@ public class CreateUserController {
         if (result.hasErrors()) {
             return "error";
         }
+        model.addAttribute(abstractService);
+
+
         model.addAttribute("role", user.getRole());
         model.addAttribute("firstName", user.getFirstName());
         model.addAttribute("lastName", user.getLastName());

@@ -1,8 +1,5 @@
 package entity;
 
-
-import entity.Question;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 

@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,10 +13,10 @@ import java.util.List;
 @Controller
 public class QuestionStatisticController {
 
-    @RequestMapping(value = "/test-statistic", method = RequestMethod.GET)
-    public List showQuestionStatistic() {
-        return ""
-    }
+  /*  @RequestMapping(value = "/test-statistic", method = RequestMethod.GET)
+    public List <Test> showQuestionStatistic() {
+        return List <Test>;
+    }*/
 
 
 }
