@@ -1,4 +1,4 @@
-package entity;
+package com.devincubator.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +13,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "TOPIC")
-public class Topic {
+@Table(name = "topic")
+public class Topic implements com.devincubator.entity.Entity {
 
     @Id
     @Column(name = "topicId")

@@ -1,4 +1,4 @@
-package entity;
+package com.devincubator.entity;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package entity;
+package com.devincubator.entity;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -11,12 +11,12 @@ import javax.persistence.Entity;
  */
 
 @Entity
-@Table(name = "TEST")
-public class Test {
+@Table(name = "test")
+public class Test implements com.devincubator.entity.Entity {
 
     @Id
     @Column(name = "testId")
-    private int testId;
+    private Long testId;
 
     @Column(name = "name")
     private String name;
@@ -26,13 +26,13 @@ public class Test {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "topicId", nullable = false)
-    private Topic topic;
+    private Topic topicId;
 
-    public int getTestId() {
+    public Long getTestId() {
         return testId;
     }
 
-    public void setTestId(int testId) {
+    public void setTestId(Long testId) {
         this.testId = testId;
     }
 
@@ -53,11 +53,11 @@ public class Test {
     }
 
     public Topic getTopic() {
-        return topic;
+        return topicId;
     }
 
-    public void setTopic(Topic topic) {
-        this.topic = topic;
+    public void setTopic(Topic topicId) {
+        this.topicId = topicId;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Test {
                 "testId=" + testId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", topic=" + topic +
+                ", topic=" + topicId +
                 '}';
     }
 }
