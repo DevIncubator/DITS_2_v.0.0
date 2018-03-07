@@ -9,7 +9,7 @@ public class Test implements com.devincubator.entity.Entity {
 
     @Id
     @Column(name = "testId")
-    private int testId;
+    private Long testId;
 
     @Column(name = "name")
     private String name;
@@ -19,13 +19,13 @@ public class Test implements com.devincubator.entity.Entity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "topicId", nullable = false)
-    private Topic topic;
+    private Topic topicId;
 
-    public int getTestId() {
+    public Long getTestId() {
         return testId;
     }
 
-    public void setTestId(int testId) {
+    public void setTestId(Long testId) {
         this.testId = testId;
     }
 
@@ -46,11 +46,11 @@ public class Test implements com.devincubator.entity.Entity {
     }
 
     public Topic getTopic() {
-        return topic;
+        return topicId;
     }
 
-    public void setTopic(Topic topic) {
-        this.topic = topic;
+    public void setTopic(Topic topicId) {
+        this.topicId = topicId;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Test implements com.devincubator.entity.Entity {
                 "testId=" + testId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", topic=" + topic +
+                ", topic=" + topicId +
                 '}';
     }
 }

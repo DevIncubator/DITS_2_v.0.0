@@ -31,7 +31,7 @@ public class CreateTestPageController {
         ModelAndView model = new ModelAndView("admin/create-test");
         Topic topic = new Topic();
         Test test = new Test();
-        model.addObject("topicTestDTO", new TopicTestDTO(topic,test));
+        model.addObject("topicTestDTO", new TopicTestDTO(topic, test));
         List<Topic> topicList = topicServiceImpl.getAll();
         List<String> topicNames = new ArrayList<>();
         for (Topic topics : topicList) {
@@ -45,7 +45,7 @@ public class CreateTestPageController {
     public ModelAndView submitForm(@ModelAttribute("topicTest") TopicTestDTO topicTestDTO) {
         topicServiceImpl.create(topicTestDTO.getTopic());
         testServiceImpl.create(topicTestDTO.getTest());
-        return showForm() ;
+        return showForm();
     }
 }
 
