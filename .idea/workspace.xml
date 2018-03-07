@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66d16af7-72ab-4fb7-a34c-dbeddd356b46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/controller/user/TopicTestPageController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/repository/QuestionRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/service/QuestionService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/service/QuestionServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topic.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/tutor/main-page-tutor.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/topic-test.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DITS.iml" afterPath="$PROJECT_DIR$/DITS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/controller/admin/CreateTestPageController.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/controller/admin/CreateTestPageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/Question.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/Question.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/Role.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/Test.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/repository/TestRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/repository/TestRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TestService.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TestServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TestServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TopicService.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TopicService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TopicServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/devincubator/service/TopicServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/DBScript" afterPath="$PROJECT_DIR$/src/main/resources/DBScript" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/resources/dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/create-test.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/create-test.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/statistic-user.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/statistic-user.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-    </list>
+    <list default="true" id="66d16af7-72ab-4fb7-a34c-dbeddd356b46" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -865,7 +840,7 @@
       <workItem from="1518467612632" duration="1636000" />
       <workItem from="1520456726074" duration="856000" />
       <workItem from="1520458143841" duration="1538000" />
-      <workItem from="1520460892361" duration="443000" />
+      <workItem from="1520460892361" duration="611000" />
     </task>
     <task id="LOCAL-00001" summary="All: delete .idea">
       <created>1518250610883</created>
@@ -892,7 +867,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11948000" />
+    <option name="totallyTimeSpent" value="12116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
