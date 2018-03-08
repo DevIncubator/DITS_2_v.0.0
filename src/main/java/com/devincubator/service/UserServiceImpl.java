@@ -3,12 +3,8 @@ package com.devincubator.service;
 import com.devincubator.entity.User;
 import com.devincubator.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.List;
 
-/**
- * Created by Dmitry on 05.03.2018.
- */
 public class UserServiceImpl implements UserService {
 
     @Autowired

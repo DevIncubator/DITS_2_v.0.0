@@ -1,4 +1,4 @@
-CREATE DATABASE `dits`;
+ CREATE DATABASE `dits`;
 
 USE `dits`;
 
