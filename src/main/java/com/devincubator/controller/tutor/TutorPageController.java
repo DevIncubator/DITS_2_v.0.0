@@ -14,14 +14,15 @@ public class TutorPageController {
         return model;
     }
 
+    //TODO: fix URLs
     @RequestMapping(value = "/edit-theme-test", method = RequestMethod.GET)
     public String goToEditThemeTest(){
-        return "tutor/edit-theme-test";
+        return "tutor/tutor-edit-theme-test";
     }
 
     @RequestMapping(value = "/edit-question", method = RequestMethod.GET)
     public String goToCreateQuestion() {
-        return "tutor/create-question";
+        return "tutor-theme-test-details";
     }
 
     @RequestMapping(value = "/tutor-statistic", method = RequestMethod.GET)
