@@ -20,12 +20,10 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getAll() {
         return topicRepository.findAll();
     }
-<<<<<<< HEAD
 
     @Override
     public Topic create(Topic topic) {
         return topicRepository.save(topic);
     }
-=======
->>>>>>> master
+
 }

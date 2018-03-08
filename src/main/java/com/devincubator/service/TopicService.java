@@ -11,9 +11,6 @@ public interface TopicService {
 
     public List<Topic> getAll();
 
-<<<<<<< HEAD
     public Topic create(Topic topic);
 
-=======
->>>>>>> master
 }
