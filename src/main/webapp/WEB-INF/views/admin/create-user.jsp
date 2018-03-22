@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<h1>Create user</h1>
+<h1>Create User</h1>
 
 <div class="form">
     <form:form class="login-form" method="POST" action="/create-user" modelAttribute="usermodel">
@@ -20,5 +20,9 @@
         <input type="submit">
     </form:form>
 </div>
+
+<form action="/admin-home">
+    <button class="admin-button">Back</button>
+</form>
 </body>
 </html>

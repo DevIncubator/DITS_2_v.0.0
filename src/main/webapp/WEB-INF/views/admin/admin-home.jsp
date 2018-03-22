@@ -7,17 +7,15 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<h1>Hello, Admin! what will you do?</h1>
-
-    <button class="admin-button">
-        <a href="/create-test">Create test</a>
-    </button>
-    <button class="admin-button">
-        <a href="/create-user">Create user</a><br>
-    </button>
-    <button class="admin-button">
-        <a href="/statistic">Statistic</a><br>
-    </button>
-
+    <h1>Hello, Admin! what will you do?</h1>
+    <form action="/create-test">
+        <button class="admin-button">Create test</button>
+    </form>
+    <form action="/create-user">
+        <button class="admin-button">Create user</button>
+    </form>
+    <form action="/statistic">
+        <button class="admin-button">Statistic</button>
+    </form>
 </body>
 </html>

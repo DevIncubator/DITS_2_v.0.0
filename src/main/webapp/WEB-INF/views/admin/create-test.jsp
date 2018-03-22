@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1>Create Test</h1>
+
 <div class="form">
     <form:form class="login-form" method="POST" action="/create-test" modelAttribute="topicTestDTO">
         <form:input path="topic.name" type="text" list="topics" placeholder="choose or create topic" required="true"/>
@@ -18,12 +19,13 @@
                 <option>${topic}</option>
             </c:forEach>
         </datalist>
-        <form:input path="test.description" type="text" placeholder="input topic description" required="true"/>
         <form:input path="test.name" type="text" placeholder="input test name" required="true"/>
-
-        <input type="submit" value="Submit"/>
-
+        <input type="submit"/>
     </form:form>
 </div>
+
+<form action="/admin-home">
+    <button class="admin-button">Back</button>
+</form>
 </body>
 </html>

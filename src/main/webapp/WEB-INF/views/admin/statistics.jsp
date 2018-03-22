@@ -1,22 +1,24 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dmitry
-  Date: 27.02.2018
-  Time: 0:03
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Statistics</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<a href="/statistic-test">statistic test</a><br>
-<a href="/statistic-user">statistic user</a><br>
-<a href="/statistic-questions">statistic questions</a><br>
-
-<form method="GET" action="/admin-home">
-    <input type="submit" value="Back">
+<h1>Choose statistic page</h1>
+<form action="/statistic-test">
+    <button class="admin-button">Tests statistics</button>
+</form>
+<form action="/statistic-user">
+    <button class="admin-button">User statistics</button>
+</form>
+<form action="/statistic-questions">
+    <button class="admin-button">Question statistics</button>
+</form>
+<form action="/admin-home">
+    <button class="admin-button">Back</button>
 </form>
 </body>
 </html>
