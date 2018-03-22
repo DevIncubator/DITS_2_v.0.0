@@ -151,20 +151,16 @@ INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('8', 'asdas
 INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('9', 'asdasdf', '9');
 INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('10', 'asdasdf', '10');
 
-DELIMITER //
-CREATE PROCEDURE user_statistics
-  (IN user_id INTEGER)
-BEGIN
- SELECT
-   t.name test_name,
-   COUNT(*) total_answered,
-   SUM(s.correct) correct,
-   COUNT(*) - SUM(s.correct) incorrect
- FROM statistics s
- JOIN question q ON s.question_id = q.question_id
- JOIN test t ON q.test_id = t.id
- WHERE s.user_id = user_id
- GROUP BY t.name;
-END//
-DELIMITER ;
+VIEW `test_statistic` AS
+    SELECT
+        `test`.`testId` AS `id`,
+        `test`.`name` AS `test_name`,
+        COUNT(0) AS `all_question`,
+        SUM(`statistic`.`correct`) AS `correct`,
+        (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
+    FROM
+        ((`statistic`
+        JOIN `question` ON ((`statistic`.`questionId` = `question`.`questionId`)))
+        JOIN `test` ON ((`question`.`testId` = `test`.`testId`)))
+    GROUP BY `test_name`
 
