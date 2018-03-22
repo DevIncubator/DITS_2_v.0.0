@@ -11,6 +11,7 @@ import java.util.Date;
 @Entity
 @Table(name = "statistic")
 public class Statistic {
+
     @Id
     @GeneratedValue
     @Column(name = "statisticId", nullable = false)

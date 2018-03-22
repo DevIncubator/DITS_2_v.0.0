@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 
 @Entity
 @Table(name = "user")
-public class User implements com.devincubator.entity.Entity  {
+public class User implements com.devincubator.entity.Entity {
 
     @Id
     @GeneratedValue
