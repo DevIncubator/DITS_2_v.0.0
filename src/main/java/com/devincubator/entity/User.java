@@ -1,8 +1,11 @@
 package com.devincubator.entity;
 
-import javax.persistence.*;
 
-@javax.persistence.Entity
+import javax.persistence.*;
+import javax.persistence.Entity;
+
+
+@Entity
 @Table(name = "user")
 public class User implements com.devincubator.entity.Entity  {
 

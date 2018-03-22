@@ -11,5 +11,5 @@ public interface TestService {
 
     public Test create(Test test);
 
-    public List<Test> findByTopicId(Topic topicId);
+/*    public List<Test> findByTopicId(Topic topicId);*/
 }

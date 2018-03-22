@@ -19,7 +19,7 @@ public class HomeAdminPageController {
         return "admin/create-test";
     }
 
-    @RequestMapping(value = "/create-user", method = RequestMethod.GET)
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String goToCreateUser() {
         return "admin/create-user";
     }

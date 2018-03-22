@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 public class Test implements com.devincubator.entity.Entity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "testId")
     private Long testId;
 
@@ -17,9 +18,9 @@ public class Test implements com.devincubator.entity.Entity {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "topicId", nullable = false)
-    private Topic topicId;
+    private Topic topic;
 
     public Long getTestId() {
         return testId;
@@ -46,11 +47,11 @@ public class Test implements com.devincubator.entity.Entity {
     }
 
     public Topic getTopic() {
-        return topicId;
+        return topic;
     }
 
-    public void setTopic(Topic topicId) {
-        this.topicId = topicId;
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
     @Override
@@ -59,7 +60,7 @@ public class Test implements com.devincubator.entity.Entity {
                 "testId=" + testId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", topic=" + topicId +
+                ", topic=" + topic +
                 '}';
     }
 }

@@ -3,8 +3,10 @@ package com.devincubator.service;
 import com.devincubator.entity.Test;
 import com.devincubator.entity.Topic;
 import com.devincubator.repository.TestRepository;
+import com.devincubator.repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,10 +15,11 @@ import java.util.List;
  * Created by Dmitry on 26.02.2018.
  */
 @Service
+@Transactional
 public class TestServiceImpl implements TestService {
 
     @Autowired
-    TestRepository testRepository;
+    private TestRepository testRepository;
 
     @Override
     public List<Test> getAll() {
@@ -28,7 +31,7 @@ public class TestServiceImpl implements TestService {
         return testRepository.save(test);
     }
 
-    public List<Test> findByTopicId(Topic topicId) {
+/*    public List<Test> findByTopicId(Topic topicId) {
         return testRepository.findByTopicId(topicId);
-    }
+    }*/
 }

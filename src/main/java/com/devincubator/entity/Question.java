@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 public class Question implements com.devincubator.entity.Entity {
 
     @Id
+    @GeneratedValue
     @Column(name = "questionId")
     private int questionId;
 
