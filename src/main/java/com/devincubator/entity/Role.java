@@ -1,27 +1,22 @@
 package com.devincubator.entity;
 
+import com.devincubator.enums.Roles;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 
-/**
- * Created by Dmitry on 08.02.2018.
- */
 @Entity
 @Table(name = "role")
 public class Role implements com.devincubator.entity.Entity {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "roleId", nullable = false)
     private int roleId;
 
-    @Column(name = "user")
-    private boolean user;
+    @Enumerated(EnumType.STRING)
+    private Roles role;
 
-    @Column(name = "tutor")
-    private boolean tutor;
-
-    @Column(name = "admin")
-    private boolean admin;
 
     public int getRoleId() {
         return roleId;
@@ -31,27 +26,11 @@ public class Role implements com.devincubator.entity.Entity {
         this.roleId = roleId;
     }
 
-    public boolean isUser() {
-        return user;
+    public Roles getRole() {
+        return role;
     }
 
-    public void setUser(boolean user) {
-        this.user = user;
-    }
-
-    public boolean isTutor() {
-        return tutor;
-    }
-
-    public void setTutor(boolean tutor) {
-        this.tutor = tutor;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
+    public void setRole(Roles role) {
+        this.role = role;
     }
 }

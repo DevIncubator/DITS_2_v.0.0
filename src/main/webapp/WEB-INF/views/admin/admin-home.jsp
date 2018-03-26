@@ -15,7 +15,7 @@
         <button class="admin-button">Create user</button>
     </form>
     <form action="/statistic">
-        <button class="admin-button">Statistic</button>
+        <button class="admin-button">Statistics</button>
     </form>
 </body>
 </html>

@@ -17,7 +17,7 @@
         Last name: <form:input path="lastName" type="text"/>
         Login: <form:input path="login" type="text" required="true"/>
         Password: <form:password path="password" required="true"/>
-        <input type="submit">
+        <input type="submit" />
     </form:form>
 </div>
 

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Choose statistic page</h1>
-<form action="/statistic-test">
+<form action="/statistics-test">
     <button class="admin-button">Tests statistics</button>
 </form>
 <form action="/statistic-user">

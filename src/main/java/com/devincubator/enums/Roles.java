@@ -1,17 +1,17 @@
-package com.devincubator.dto;
+package com.devincubator.enums;
 
 /**
- * Created by Dmitry on 05.03.2018.
+ * Created by Dmitry on 26.03.2018.
  */
-public enum UserRoleDTO {
+public enum Roles {
 
-    ADMIN("admin"),
-    TUTOR("tutor"),
-    USER("user");
+    admin("admin"),
+    tutor("tutor"),
+    user("user");
 
     private String name;
 
-    UserRoleDTO(String name) {
+    Roles(String name) {
         this.name = name;
     }
 
@@ -21,7 +21,7 @@ public enum UserRoleDTO {
 
     @Override
     public String toString() {
-        return "UserRoleDTO{" +
+        return "Roles{" +
                 "name='" + name + '\'' +
                 '}';
     }

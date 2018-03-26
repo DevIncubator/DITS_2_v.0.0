@@ -22,9 +22,7 @@ public class StatisticServiceImpl implements StatisticService {
 
     @Override
     public List<Statistic> getAll() {
-
-        return
-                statisticRepository.findAll();
+        return statisticRepository.findAll();
     }
 
     @Override

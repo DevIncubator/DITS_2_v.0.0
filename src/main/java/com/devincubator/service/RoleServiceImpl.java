@@ -1,6 +1,7 @@
 package com.devincubator.service;
 
 import com.devincubator.entity.Role;
+import com.devincubator.enums.Roles;
 import com.devincubator.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Role create(Role role) {
         return roleRepository.save(role);
+    }
+
+    @Override
+    public Role getByRole(String role) {
+        return roleRepository.findByRole(Roles.valueOf(role));
     }
 }
