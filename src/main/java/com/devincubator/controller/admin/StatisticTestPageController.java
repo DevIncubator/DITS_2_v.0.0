@@ -22,8 +22,7 @@ public class StatisticTestPageController {
     @RequestMapping(value = "/statistics-test", method = RequestMethod.GET)
     public ModelAndView showViews() {
         ModelAndView model = new ModelAndView("admin/statistic-test");
-        List<TestStatistic> testStatistic;
-        testStatistic = testStatisticServiceImpl.getAll();
+        List<TestStatistic> testStatistic = testStatisticServiceImpl.getAll();
         model.addObject("stat", testStatistic);
         return model;
     }

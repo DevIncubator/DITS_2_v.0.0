@@ -8,7 +8,7 @@ import javax.persistence.Entity;
  */
 @Entity
 @Table(name = "user_statistic")
-public class UserStatistic implements com.devincubator.entity.Entity{
+public class UserStatistic implements com.devincubator.entity.Entity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -17,8 +17,8 @@ public class UserStatistic implements com.devincubator.entity.Entity{
     @Column(name = "fio")
     private String fio;
 
-    @Column(name = "all_question")
-    private int sumQuestion;
+    @Column(name = "all_answers")
+    private int sumAnswers;
 
     @Column(name = "correct")
     private int sumCorrectQuestion;
@@ -42,12 +42,12 @@ public class UserStatistic implements com.devincubator.entity.Entity{
         this.fio = fio;
     }
 
-    public int getSumQuestion() {
-        return sumQuestion;
+    public int getsumAnswers() {
+        return sumAnswers;
     }
 
-    public void setSumQuestion(int sumQuestion) {
-        this.sumQuestion = sumQuestion;
+    public void setsumAnswers(int sumQuestion) {
+        this.sumAnswers = sumQuestion;
     }
 
     public int getSumCorrectQuestion() {

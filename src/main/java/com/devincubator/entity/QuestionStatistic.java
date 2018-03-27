@@ -4,19 +4,19 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 
 /**
- * Created by Dmitry on 19.03.2018.
+ * Created by Dmitry on 27.03.2018.
  */
 
 @Entity
-@Table(name = "test_statistic")
-public class TestStatistic implements com.devincubator.entity.Entity {
+@Table(name = "question_statistic")
+public class QuestionStatistic implements com.devincubator.entity.Entity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
-    @Column(name = "test_name")
-    private String testName;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "all_answers")
     private int sumAnswers;
@@ -35,12 +35,12 @@ public class TestStatistic implements com.devincubator.entity.Entity {
         this.id = id;
     }
 
-    public String getTestName() {
-        return testName;
+    public String getdescription() {
+        return description;
     }
 
-    public void setTestName(String testName) {
-        this.testName = testName;
+    public void setdescription(String description) {
+        this.description = description;
     }
 
     public int getSumAnswers() {
@@ -66,6 +66,5 @@ public class TestStatistic implements com.devincubator.entity.Entity {
     public void setSumIncorrectQuestion(int sumIncorrectQuestion) {
         this.sumIncorrectQuestion = sumIncorrectQuestion;
     }
+
 }
-
-

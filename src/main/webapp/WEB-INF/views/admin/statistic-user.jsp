@@ -10,7 +10,7 @@
 
     <tr>
         <th>User FIO</th>
-        <th>Questions</th>
+        <th>Answers</th>
         <th>Correct</th>
         <th>Incorrect</th>
     </tr>
@@ -18,7 +18,7 @@
     <c:forEach var="stat" items="${stat}">
         <tr>
             <td>${stat.fio}</td>
-            <td>${stat.sumQuestion}</td>
+            <td>${stat.sumAnswers}</td>
             <td>${stat.sumCorrectQuestion}</td>
             <td>${stat.sumIncorrectQuestion}</td>
         </tr>

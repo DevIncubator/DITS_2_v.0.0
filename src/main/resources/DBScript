@@ -154,7 +154,7 @@ VIEW `test_statistic` AS
     SELECT
         `test`.`testId` AS `id`,
         `test`.`name` AS `test_name`,
-        COUNT(0) AS `all_question`,
+        COUNT(0) AS `all_answers`,
         SUM(`statistic`.`correct`) AS `correct`,
         (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
     FROM
@@ -169,10 +169,22 @@ VIEW `user_statistic` AS
         CONCAT_WS(' ',
                 `user`.`firstName`,
                 `user`.`lastName`) AS `fio`,
-        COUNT(0) AS `all_question`,
+        COUNT(0) AS `all_answers`,
         SUM(`statistic`.`correct`) AS `correct`,
         (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
     FROM
         (`statistic`
         JOIN `user` ON ((`statistic`.`userId` = `user`.`userId`)))
     GROUP BY `statistic`.`userId`
+
+VIEW `question_statistic` AS
+    SELECT
+        `question`.`questionId` AS `id`,
+        `question`.`description` AS `description`,
+        COUNT(0) AS `all_answers`,
+        SUM(`statistic`.`correct`) AS `correct`,
+        (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
+    FROM
+        (`statistic`
+        JOIN `question` ON ((`statistic`.`questionId` = `question`.`questionId`)))
+    GROUP BY `question`.`description`
