@@ -163,3 +163,16 @@ VIEW `test_statistic` AS
         JOIN `test` ON ((`question`.`testId` = `test`.`testId`)))
     GROUP BY `test_name`
 
+VIEW `user_statistic` AS
+    SELECT
+        `user`.`userId` AS `id`,
+        CONCAT_WS(' ',
+                `user`.`firstName`,
+                `user`.`lastName`) AS `fio`,
+        COUNT(0) AS `all_question`,
+        SUM(`statistic`.`correct`) AS `correct`,
+        (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
+    FROM
+        (`statistic`
+        JOIN `user` ON ((`statistic`.`userId` = `user`.`userId`)))
+    GROUP BY `statistic`.`userId`
