@@ -11,10 +11,10 @@
 <form action="/statistics-test">
     <button class="admin-button">Tests statistics</button>
 </form>
-<form action="/statistic-user">
+<form action="/statistics-user">
     <button class="admin-button">User statistics</button>
 </form>
-<form action="/statistic-questions">
+<form action="/statistics-questions">
     <button class="admin-button">Question statistics</button>
 </form>
 <form action="/admin-home">
