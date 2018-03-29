@@ -14,10 +14,10 @@
                 <button formaction="/tutor-edit-theme-test">Edit theme/test</button>
                 <br><br>
 
-                <button formaction="/tutor-theme-test-details">Theme/test details</button>
+                <button formaction="/tutor-theme-test-details">Edit questions/answers</button>
                 <br><br>
 
-                <button formaction="/tutor-statistic">Statistic</button>
+                <button formaction="/tutor-statistic">Statistics</button>
 
 
             </form>
