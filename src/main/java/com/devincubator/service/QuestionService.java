@@ -10,6 +10,6 @@ public interface QuestionService {
 
     void addQuestion(Question question);
 
-    Question findByQuestionId(Long questionId);
+    Question findByQuestionId(Integer questionId);
 
 }

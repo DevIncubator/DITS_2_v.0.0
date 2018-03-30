@@ -43,6 +43,13 @@ public class Topic implements com.devincubator.entity.Entity {
         this.description = description;
     }
 
+    public Topic() {
+    }
+
+    public Topic(String topicName) {
+        this.name = topicName;
+    }
+
     @Override
     public String toString() {
         return "Topic{" +
