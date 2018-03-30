@@ -88,7 +88,7 @@ INSERT INTO `dits`.`role` (`roleId`, `role`) VALUES ('3', 'user');
 INSERT INTO `dits`.`topic` (`topicId`, `description`, `name`) VALUES ('1', 'description1', 'topic1');
 INSERT INTO `dits`.`topic` (`topicId`, `description`, `name`) VALUES ('2', 'description2', 'topic2');
 
-INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('1', 'John', 'Fedor', 'jo', '123', '1');
+INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('1', 'John', 'Fedor', 'jo', '$2a$10$cwsK/hpuHln4URqdmIHlTOKurxB.jTxWCRNTgHa/GGBmHpXLOBCNC', '1');
 INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('2', 'Bob', 'Blob', 'bobby', '321', '2');
 
 INSERT INTO `dits`.`test` (`testId`, `name`, `description`, `topicId`) VALUES ('1', 'test1', 'description1', '1');
