@@ -26,4 +26,9 @@ public class TopicServiceImpl implements TopicService {
         return topicRepository.save(topic);
     }
 
+    @Override
+    public Topic findByName(String name) {
+        return topicRepository.findByName(name);
+    }
+
 }

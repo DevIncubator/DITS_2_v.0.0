@@ -28,8 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUsername(username);
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userService.findByLogin(login);
 
         Role role = user.getRole();
         String userRole;

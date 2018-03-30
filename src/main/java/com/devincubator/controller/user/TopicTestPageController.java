@@ -1,23 +1,17 @@
 package com.devincubator.controller.user;
 
 import com.devincubator.entity.Topic;
-import com.devincubator.entity.Test;
 import com.devincubator.service.TestServiceImpl;
 import com.devincubator.service.TopicServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Controller
 public class TopicTestPageController {

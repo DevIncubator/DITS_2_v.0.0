@@ -1,32 +1,56 @@
 package com.devincubator.controller.tutor;
 
+import com.devincubator.entity.Question;
+import com.devincubator.entity.Topic;
+import com.devincubator.service.QuestionService;
+import com.devincubator.service.TopicService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
+/**
+ * Main page controller for tutor
+ *
+ * @author Alex V.
+ */
+
 @Controller
 public class TutorPageController {
 
-    @RequestMapping(value = "/tutor-main-page", method = RequestMethod.GET)
+    @Autowired
+    private TopicService topicService;
+
+    @Autowired
+    private QuestionService questionService;
+
+    @RequestMapping(value = "/tutor", method = RequestMethod.GET)
     public ModelAndView showForm() {
         ModelAndView model = new ModelAndView("tutor/tutor-main-page");
         return model;
     }
 
-    //TODO: fix URLs
-    @RequestMapping(value = "/edit-theme-test", method = RequestMethod.GET)
-    public String goToEditThemeTest(){
-        return "tutor/tutor-edit-theme-test";
+
+    @RequestMapping(value = "/getTopics", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public String getTopicPage(Model model) {
+        List<Topic> topicList = topicService.getAll();
+        model.addAttribute("topicList", topicList);
+        return "tutor/tests";
     }
 
-    @RequestMapping(value = "/edit-question", method = RequestMethod.GET)
-    public String goToCreateQuestion() {
-        return "tutor-theme-test-details";
+    @RequestMapping(value = "/getQuestions", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public String getQuestionPage(Model model) {
+        List<Question> questionList = questionService.getAll();
+        model.addAttribute("questionList", questionList);
+        return "tutor/questions";
     }
 
-    @RequestMapping(value = "/tutor-statistic", method = RequestMethod.GET)
-    public String goToStatistic() {
-        return "tutor/tutor-statistics";
+    @RequestMapping(value = "/getStatistics", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public String getStatisticPage() {
+        return "tutor/statistics";
     }
 }

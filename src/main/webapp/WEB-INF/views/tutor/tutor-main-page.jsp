@@ -6,18 +6,18 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<form:form method="POST" action="/tutor-main-page" modelAttribute="topic">
+<form:form method="POST" action="/tutor" modelAttribute="topic">
     <div class="login-page">
         <div class="form">
             <form class="button">
 
-                <button formaction="/tutor-edit-theme-test">Edit theme/test</button>
+                <button formaction="/getTopics">Edit theme/test</button>
                 <br><br>
 
-                <button formaction="/tutor-theme-test-details">Edit questions/answers</button>
+                <button formaction="/getQuestions">Edit questions/answers</button>
                 <br><br>
 
-                <button formaction="/tutor-statistic">Statistics</button>
+                <button formaction="/getStatistics">Statistics</button>
 
 
             </form>

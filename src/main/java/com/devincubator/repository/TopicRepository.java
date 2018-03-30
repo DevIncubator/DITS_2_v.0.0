@@ -8,5 +8,8 @@ import org.springframework.stereotype.Repository;
  * Created by Dmitry on 25.02.2018.
  */
 @Repository
-public interface TopicRepository extends JpaRepository <Topic, Long> {
+public interface TopicRepository extends JpaRepository <Topic, Integer> {
+
+    Topic findByName(String name);
+
 }

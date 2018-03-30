@@ -1,7 +1,6 @@
 package com.devincubator.service;
 
 import com.devincubator.entity.Test;
-import com.devincubator.entity.Topic;
 import com.devincubator.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public List<Test> findByTopicId(Topic topicId) {
+    public List<Test> findByTopicId(int topicId) {
         return testRepository.findByTopicId(topicId);
     }
 

@@ -13,5 +13,5 @@ public interface UserService {
 
     public User create(User user);
 
-    User findByUsername(String username);
+    User findByLogin(String login);
 }
