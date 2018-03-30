@@ -20,7 +20,7 @@ CREATE TABLE `user` (
       `firstName` VARCHAR(45) NULL,
       `lastName` VARCHAR(45) NULL,
       `login` VARCHAR(45) NOT NULL,
-      `password` VARCHAR(45) NOT NULL,
+      `password` VARCHAR(255) NOT NULL,
       `roleId` INT NOT NULL,
       PRIMARY KEY (`userId`), FOREIGN KEY (`roleId`) REFERENCES role (`roleId`));
 

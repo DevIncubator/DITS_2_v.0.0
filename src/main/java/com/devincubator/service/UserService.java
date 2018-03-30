@@ -10,7 +10,9 @@ import java.util.List;
  */
 public interface UserService {
 
-    public List<User> getAll();
+     List<User> getAll();
 
-    public User create(UserDTO user);
+     User create(UserDTO user);
+
+     User findByLogin(String login);
 }

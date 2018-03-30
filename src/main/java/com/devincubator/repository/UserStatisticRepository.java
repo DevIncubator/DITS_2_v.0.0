@@ -8,7 +8,10 @@ import java.util.List;
 /**
  * Created by Dmitry on 27.03.2018.
  */
+@org.springframework.stereotype.Repository
 public interface UserStatisticRepository extends Repository<UserStatistic, Long> {
 
     List<UserStatistic> findAll();
+
+
 }
