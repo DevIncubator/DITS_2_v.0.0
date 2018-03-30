@@ -21,6 +21,15 @@ public class Test implements com.devincubator.entity.Entity {
     @JoinColumn(name = "topicId", nullable = false)
     private Topic topicId;
 
+    public Test() {
+    }
+
+    public Test(Long testId, String name, String description) {
+        this.testId = testId;
+        this.name = name;
+        this.description = description;
+    }
+
     public Long getTestId() {
         return testId;
     }

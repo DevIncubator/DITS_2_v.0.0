@@ -13,4 +13,5 @@ public interface TopicService {
 
     public Topic create(Topic topic);
 
+    Topic findByName(String name);
 }
