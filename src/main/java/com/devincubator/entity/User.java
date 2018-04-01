@@ -1,15 +1,18 @@
 package com.devincubator.entity;
 
-import javax.persistence.*;
 
-@javax.persistence.Entity
+import javax.persistence.*;
+import javax.persistence.Entity;
+
+
+@Entity
 @Table(name = "user")
-public class User implements com.devincubator.entity.Entity  {
+public class User implements com.devincubator.entity.Entity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId", nullable = false)
-    private int userId;
+    private Long userId;
 
     @Column(name = "firstName")
     private String firstName;
@@ -23,15 +26,15 @@ public class User implements com.devincubator.entity.Entity  {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "roleId", nullable = false)
     private Role role;
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

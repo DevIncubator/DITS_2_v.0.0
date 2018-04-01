@@ -4,19 +4,25 @@
 <html>
 <head>
     <title>Create User</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<form:form method="POST" action="/create-test" modelAttribute="test">
-<form:input path="role" type="text" list="roles" placeholder="choose or create topic"/>
-<datalist id="roles">
-    <c:forEach items="${roleList}" var="role">
-    <option>${role}</option>
-    </c:forEach>
-        <form:input path="firstName" type="text" placeholder="input firstName"/>
-        <form:input path="lastName" type="text" placeholder="input lastName"/>
-        <form:input path="login" type="text" placeholder="input login"/>
-        <form:input path="password" type="text" placeholder="input password"/>
-        <input type="submit">
+<h1>Create User</h1>
+
+<div class="form">
+    <form:form class="login-form" method="POST" action="/create-user" modelAttribute="usermodel">
+        Role: <form:select path="role" items="${roleNames}" required="true"/>
+        First name: <form:input path="firstName" type="text"/>
+        Last name: <form:input path="lastName" type="text"/>
+        Login: <form:input path="login" type="text" required="true"/>
+        Password: <form:password path="password" required="true"/>
+        <input type="submit" />
     </form:form>
+</div>
+
+<form action="/admin-home">
+    <button class="admin-button">Back</button>
+</form>
 </body>
 </html>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Common Entity which implements Serializable
+ *
  * @author Alex V.
  */
 

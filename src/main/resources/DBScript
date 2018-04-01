@@ -1,12 +1,10 @@
-CREATE DATABASE `dits`;
+ CREATE DATABASE `dits`;
 
 USE `dits`;
 
 CREATE TABLE `role` (
   `roleId` INT NOT NULL,
-  `user` BINARY NULL,
-  `tutor` BINARY NULL,
-  `admin` BINARY NULL,
+  `role` VARCHAR(45) NULL,
   PRIMARY KEY (`roleId`));
 
 DROP TABLE IF EXISTS `topic`;
@@ -22,7 +20,7 @@ CREATE TABLE `user` (
       `firstName` VARCHAR(45) NULL,
       `lastName` VARCHAR(45) NULL,
       `login` VARCHAR(45) NOT NULL,
-      `password` VARCHAR(45) NOT NULL,
+      `password` VARCHAR(255) NOT NULL,
       `roleId` INT NOT NULL,
       PRIMARY KEY (`userId`), FOREIGN KEY (`roleId`) REFERENCES role (`roleId`));
 
@@ -83,13 +81,14 @@ CREATE TABLE `dits`.`link` (
     FOREIGN KEY (`literatureId`) REFERENCES literature (`literatureId`)
   );
 
-INSERT INTO `dits`.`role` (roleId, tutor) VALUES (1, 1);  /*под вопросом второе поле, точно ли binary?*/
-INSERT INTO `dits`.`role` (roleId, user) VALUES (2, 1);
+INSERT INTO `dits`.`role` (`roleId`, `role`) VALUES ('1', 'admin');
+INSERT INTO `dits`.`role` (`roleId`, `role`) VALUES ('2', 'tutor');
+INSERT INTO `dits`.`role` (`roleId`, `role`) VALUES ('3', 'user');
 
 INSERT INTO `dits`.`topic` (`topicId`, `description`, `name`) VALUES ('1', 'description1', 'topic1');
 INSERT INTO `dits`.`topic` (`topicId`, `description`, `name`) VALUES ('2', 'description2', 'topic2');
 
-INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('1', 'John', 'Fedor', 'jo', '123', '1');
+INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('1', 'John', 'Fedor', 'jo', '$2a$10$cwsK/hpuHln4URqdmIHlTOKurxB.jTxWCRNTgHa/GGBmHpXLOBCNC', '1');
 INSERT INTO `dits`.`user` (`userId`, `firstName`, `lastName`, `login`, `password`, `roleId`) VALUES ('2', 'Bob', 'Blob', 'bobby', '321', '2');
 
 INSERT INTO `dits`.`test` (`testId`, `name`, `description`, `topicId`) VALUES ('1', 'test1', 'description1', '1');
@@ -119,15 +118,15 @@ INSERT INTO `dits`.`question` (`questionId`, `description`, `testId`) VALUES ('1
 INSERT INTO `dits`.`question` (`questionId`, `description`, `testId`) VALUES ('20', 'question20', '4');
 
 INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('1', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('2', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('3', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('4', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('5', '2017-12-31', '1', '1', '1');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('6', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('7', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('8', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('9', '2017-12-31', '1', '2', '2');
-INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('10', '2017-12-31', '0', '2', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('2', '2017-12-31', '0', '2', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('3', '2017-12-31', '1', '3', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('4', '2017-12-31', '1', '4', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('5', '2017-12-31', '1', '5', '1');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('6', '2017-12-31', '1', '6', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('7', '2017-12-31', '1', '7', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('8', '2017-12-31', '1', '8', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('9', '2017-12-31', '1', '9', '2');
+INSERT INTO `dits`.`statistic` (`statisticId`, `date`, `correct`, `questionId`, `userId`) VALUES ('10', '2017-12-31', '0', '10', '2');
 
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('1', 'description of literature', '1');
 INSERT INTO `dits`.`literature` (`literatureId`, `description`, `questionId`) VALUES ('2', 'description of literature', '2');
@@ -150,3 +149,42 @@ INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('7', 'asdas
 INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('8', 'asdasdf', '8');
 INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('9', 'asdasdf', '9');
 INSERT INTO `dits`.`link` (`linkId`, `link`, `literatureId`) VALUES ('10', 'asdasdf', '10');
+
+VIEW `test_statistic` AS
+    SELECT
+        `test`.`testId` AS `id`,
+        `test`.`name` AS `test_name`,
+        COUNT(0) AS `all_answers`,
+        SUM(`statistic`.`correct`) AS `correct`,
+        (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
+    FROM
+        ((`statistic`
+        JOIN `question` ON ((`statistic`.`questionId` = `question`.`questionId`)))
+        JOIN `test` ON ((`question`.`testId` = `test`.`testId`)))
+    GROUP BY `test_name`
+
+VIEW `user_statistic` AS
+    SELECT
+        `user`.`userId` AS `id`,
+        CONCAT_WS(' ',
+                `user`.`firstName`,
+                `user`.`lastName`) AS `fio`,
+        COUNT(0) AS `all_answers`,
+        SUM(`statistic`.`correct`) AS `correct`,
+        (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
+    FROM
+        (`statistic`
+        JOIN `user` ON ((`statistic`.`userId` = `user`.`userId`)))
+    GROUP BY `statistic`.`userId`
+
+VIEW `question_statistic` AS
+    SELECT
+        `question`.`questionId` AS `id`,
+        `question`.`description` AS `description`,
+        COUNT(0) AS `all_answers`,
+        SUM(`statistic`.`correct`) AS `correct`,
+        (COUNT(`statistic`.`correct`) - SUM(`statistic`.`correct`)) AS `incorrect`
+    FROM
+        (`statistic`
+        JOIN `question` ON ((`statistic`.`questionId` = `question`.`questionId`)))
+    GROUP BY `question`.`description`

@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface RoleService {
 
-    public List<Role> getAll();
+    List<Role> getAll();
 
-    public Role create(Role role);
+    Role create(Role role);
+
+    Role getByRole(String role);
 }

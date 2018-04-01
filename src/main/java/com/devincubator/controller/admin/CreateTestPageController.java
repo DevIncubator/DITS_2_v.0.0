@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +30,7 @@ public class CreateTestPageController {
         ModelAndView model = new ModelAndView("admin/create-test");
         Topic topic = new Topic();
         Test test = new Test();
+        test.setTopic(topic);
         model.addObject("topicTestDTO", new TopicTestDTO(topic, test));
         List<Topic> topicList = topicServiceImpl.getAll();
         List<String> topicNames = new ArrayList<>();
@@ -42,8 +42,9 @@ public class CreateTestPageController {
     }
 
     @RequestMapping(value = "/create-test", method = RequestMethod.POST)
-    public ModelAndView submitForm(@ModelAttribute("topicTest") TopicTestDTO topicTestDTO) {
-        topicServiceImpl.create(topicTestDTO.getTopic());
+    public ModelAndView submitForm(@ModelAttribute("topicTestDTO") TopicTestDTO topicTestDTO) {
+        Topic topic = topicServiceImpl.create(topicTestDTO.getTopic());
+        topicTestDTO.getTest().setTopic(topic);
         testServiceImpl.create(topicTestDTO.getTest());
         return showForm();
     }

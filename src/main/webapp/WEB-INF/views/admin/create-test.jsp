@@ -5,22 +5,27 @@
 <html>
 <head>
     <title>Create test</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-
 <h1>Create Test</h1>
 
-<form:form method="POST" action="/create-test" modelAttribute="topic">
+<div class="form">
+    <form:form class="login-form" method="POST" action="/create-test" modelAttribute="topicTestDTO">
+        <form:input path="topic.name" type="text" list="topics" placeholder="choose or create topic" required="true"/>
+        <datalist id="topics">
+            <c:forEach items="${topicList}" var="topic">
+                <option>${topic}</option>
+            </c:forEach>
+        </datalist>
+        <form:input path="test.name" type="text" placeholder="input test name" required="true"/>
+        <input type="submit"/>
+    </form:form>
+</div>
 
-    <form:select path="name">
-        <form:options items="${topicList}"/>
-    </form:select>
-
-    <form:input path="description"/>
-
-    <input type="submit" value="Submit"/>
-
-</form:form>
-
+<form action="/admin-home">
+    <button class="admin-button">Back</button>
+</form>
 </body>
 </html>

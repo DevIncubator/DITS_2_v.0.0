@@ -5,9 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Created by Dmitry on 26.02.2018.
- */
 @Controller
 public class HomeAdminPageController {
 
@@ -22,7 +19,7 @@ public class HomeAdminPageController {
         return "admin/create-test";
     }
 
-    @RequestMapping(value = "/create-user", method = RequestMethod.GET)
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String goToCreateUser() {
         return "admin/create-user";
     }

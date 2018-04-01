@@ -1,17 +1,16 @@
 package com.devincubator.entity;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "topic")
 public class Topic implements com.devincubator.entity.Entity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "topicId")
-    private int topicId;
+    private Long topicId;
 
     @Column(name = "name")
     private String name;
@@ -19,11 +18,11 @@ public class Topic implements com.devincubator.entity.Entity {
     @Column(name = "description")
     private String description;
 
-    public int getTopicId() {
+    public Long getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(int topicId) {
+    public void setTopicId(Long topicId) {
         this.topicId = topicId;
     }
 

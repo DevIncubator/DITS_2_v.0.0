@@ -1,6 +1,8 @@
 package com.devincubator.service;
 
+import com.devincubator.dto.UserDTO;
 import com.devincubator.entity.User;
+
 import java.util.List;
 
 /**
@@ -8,7 +10,9 @@ import java.util.List;
  */
 public interface UserService {
 
-    public List<User> getAll();
+     List<User> getAll();
 
-    public User create(User user);
+     User create(UserDTO user);
+
+     User findByLogin(String login);
 }
