@@ -20,10 +20,6 @@ public class TestServiceImpl implements TestService {
         return testRepository.findAll();
     }
 
-    /*public List<Test> findByTopicId(Topic topicId) {
-        return testRepository.findByTopicId(topicId);
-    }*/
-
     @Override
     public Test create(Test test) {
         return testRepository.save(test);
@@ -34,4 +30,6 @@ public class TestServiceImpl implements TestService {
     }
 
     public Test findByName(String name) {return testRepository.findByName(name);}
+
+    public List<Test> findByTopicId(Long topicId){return testRepository.findByTopicTopicId(topicId);}
 }

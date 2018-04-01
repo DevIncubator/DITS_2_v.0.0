@@ -20,6 +20,7 @@
     <mysql.version>6.0.6</mysql.version>
     <hb.manager>5.2.12.Final</hb.manager>
     <jstl.version>1.2</jstl.version>
+    <spring.security>5.0.3.RELEASE</spring.security>
     <!--<spring.test></spring.test>-->
     <!--<junit.version></junit.version>-->
   </properties>
@@ -102,24 +103,27 @@
       <version>5.0.3.RELEASE</version>
     </dependency>
 
-    <!--<dependency>-->
-      <!--<groupId>junit</groupId>-->
-      <!--<artifactId>junit</artifactId>-->
-      <!--<version>${junit.version}</version>-->
-      <!--<scope>test</scope>-->
-    <!--</dependency>-->
+      <!--Spring Security-->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-core</artifactId>
+          <version>${spring.security}</version>
+      </dependency>
 
-    <!--<dependency>-->
-      <!--<groupId>org.springframework</groupId>-->
-      <!--<artifactId>spring-test</artifactId>-->
-      <!--<version>${spring.test}</version>-->
-      <!--<scope>test</scope>-->
-    <!--</dependency>-->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-web</artifactId>
+          <version>${spring.security}</version>
+      </dependency>
 
-
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-config</artifactId>
+          <version>${spring.security}</version>
+      </dependency>
   </dependencies>
 
-  <build>
+  <!--<build>
     <finalName>dits</finalName>
     <plugins>
       <plugin>
@@ -137,5 +141,47 @@
         </configuration>
       </plugin>
     </plugins>
-  </build>
+  </build>-->
+
+
+    <!--<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.plugin>3.3</maven.compiler.plugin>
+        <maven.war.plugin>3.2.0</maven.war.plugin>
+
+        <spring.version>5.0.4.RELEASE</spring.version>
+        <spring.data>2.0.4.RELEASE</spring.data>
+        <spring.security>5.0.3.RELEASE</spring.security>
+        <hb.manager>5.2.12.Final</hb.manager>
+        <javax.servlet>4.0.0</javax.servlet>
+        <mysql.version>6.0.6</mysql.version>
+        <jstl.version>1.2</jstl.version>
+    </properties>-->
+
+
+
+    <build>
+        <finalName>dits</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!--<version>${maven.compiler.plugin}</version>-->
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <!--<version>${maven.war.plugin}</version>-->
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

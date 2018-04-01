@@ -6,9 +6,13 @@ import com.devincubator.entity.Test;
 import java.util.List;
 
 public interface QuestionService {
+
     List<Question> getAll();
 
-    Question findByQuestionId(Long id);
-
     List<Question> findByTest(Test test);
+
+    void addQuestion(Question question);
+
+    Question findByQuestionId(Long questionId);
+
 }

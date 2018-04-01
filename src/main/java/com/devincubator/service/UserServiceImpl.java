@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
+/**
+ * Created by Dmitry on 05.03.2018.
+ */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -26,6 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public List<User> getAll() {
         return userRepository.findAll();
     }
@@ -47,5 +51,4 @@ public class UserServiceImpl implements UserService {
     public User findByLogin(String login) {
         return userRepository.findByLogin(login);
     }
-
 }

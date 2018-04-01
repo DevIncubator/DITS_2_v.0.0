@@ -27,7 +27,7 @@
         <button class="user-button">Submit</button>
     </form>
 </form>
-<form action="/getTopics">
+<form action="/getUserTopics">
     <button class="user-button">Back</button>
 </form>
 </body>

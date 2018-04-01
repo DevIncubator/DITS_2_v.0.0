@@ -9,7 +9,7 @@
 <body>
 <center>
     <h1>Choose</h1>
-    <form action="/getTopics">
+    <form action="/getUserTopics">
         <button class="user-button">Test</button>
     </form>
 

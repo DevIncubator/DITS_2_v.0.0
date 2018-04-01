@@ -11,12 +11,10 @@ public interface TestService {
 
     public Test create(Test test);
 
-//    public List<Test> findByTopicId(Topic topicId);
-
     public List<Test> findByTopic(Topic topic);
 
     public Test findByName(String name);
 
-
+    public List<Test> findByTopicId(Long topicId);
 
 }

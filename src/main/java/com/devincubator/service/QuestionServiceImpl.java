@@ -20,9 +20,18 @@ public class QuestionServiceImpl implements QuestionService {
         return questionRepository.findAll();
     }
 
+    @Override
     public List<Question> findByTest(Test test) {
         return questionRepository.findByTest(test);
     }
 
-    public Question findByQuestionId(Long id) {return questionRepository.findByQuestionId(id);}
+    @Override
+    public void addQuestion(Question question) {
+        questionRepository.save(question);
+    }
+
+    @Override
+    public Question findByQuestionId(Long questionId) {
+        return questionRepository.findByQuestionId(questionId);
+    }
 }

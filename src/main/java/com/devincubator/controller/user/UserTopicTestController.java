@@ -27,7 +27,7 @@ public class UserTopicTestController {
         this.testService = testService;
     }
 
-    @RequestMapping(value = "/getTopics", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/getUserTopics", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public String getTopics(Model model) {
         List<Topic> topicList = topicService.getAll();
         model.addAttribute("topic", new Topic());
