@@ -16,7 +16,7 @@ public class Question implements com.devincubator.entity.Entity {
     @Id
     @GeneratedValue
     @Column(name = "questionId")
-    private int questionId;
+    private Long questionId;
 
     @Column(name = "description")
     private String description;
@@ -25,11 +25,11 @@ public class Question implements com.devincubator.entity.Entity {
     @JoinColumn(name = "testId", nullable = false)
     private Test test;
 
-    public int getQuestionId() {
+    public Long getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
+    public void setQuestionId(Long questionId) {
         this.questionId = questionId;
     }
 

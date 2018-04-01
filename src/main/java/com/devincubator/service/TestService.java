@@ -11,5 +11,9 @@ public interface TestService {
 
     public Test create(Test test);
 
+    public List<Test> findByTopic(Topic topic);
 /*    public List<Test> findByTopicId(Topic topicId);*/
+
+    public Test findByName(String name);
+
 }

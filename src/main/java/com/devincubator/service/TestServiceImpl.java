@@ -31,6 +31,11 @@ public class TestServiceImpl implements TestService {
         return testRepository.save(test);
     }
 
+    public List<Test> findByTopic(Topic topic) {
+        return testRepository.findByTopic(topic);
+    }
+
+    public Test findByName(String name) {return testRepository.findByName(name);}
 /*    public List<Test> findByTopicId(Topic topicId) {
         return testRepository.findByTopicId(topicId);
     }*/

@@ -13,29 +13,36 @@ import java.util.Date;
 public class Statistic {
 
     @Id
-    @GeneratedValue
-    @Column(name = "statisticId", nullable = false)
-    private int statisticId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "statisticId")
+    private Long statisticId;
 
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
     private Date date;
 
     @Column(name = "correct")
     private boolean correct;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "questionId", nullable = false)
     private Question question;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "userId")
     private User user;
 
-    public int getStatisticId() {
+    public Statistic(Question question, boolean correct){
+        this.question = question;
+        this.correct = correct;
+    }
+
+    public Statistic(){}
+
+    public Long getStatisticId() {
         return statisticId;
     }
 
-    public void setStatisticId(int statisticId) {
+    public void setStatisticId(Long statisticId) {
         this.statisticId = statisticId;
     }
 

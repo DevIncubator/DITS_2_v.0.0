@@ -1,18 +1,18 @@
 package com.devincubator.repository;
 
 import com.devincubator.entity.Question;
-import com.devincubator.entity.Test;
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.devincubator.entity.Answer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface QuestionRepository extends JpaRepository<Question, Long> {
+public interface AnswerRepository extends JpaRepository<Answer, Long> {
 
-    Question findByQuestionId(Long questionId);
+    List<Answer> findByQuestion(Question question);
 
-    List<Question> findByTest(Test test);
+    Answer findByAnswerId(Long id);
 
 
 }

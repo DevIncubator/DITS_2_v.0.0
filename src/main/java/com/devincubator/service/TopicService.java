@@ -15,4 +15,8 @@ public interface TopicService {
     public Topic create(Topic topic);
 
     public Topic findByTopicId(Long topicId);
+
+    public Topic findByName(String name);
+
+
 }

@@ -11,6 +11,10 @@ import java.util.List;
 @Repository
 public interface TestRepository extends JpaRepository<Test, Long> {
 
+    List<Test> findByTopic(Topic topic);
+
+    Test findByName(String name);
+
 //    @Query("select b from test b where b.topicId = :topicId")
     //List<Test> findByTopicId(@Param("topicId") Topic topic);
 }

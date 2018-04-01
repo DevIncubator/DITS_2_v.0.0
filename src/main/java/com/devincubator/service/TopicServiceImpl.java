@@ -32,4 +32,8 @@ public class TopicServiceImpl implements TopicService {
     public Topic findByTopicId(Long topicId) {
         return topicRepository.getOne(topicId);
     }
+
+    public Topic findByName(String name){
+        return topicRepository.findByName(name);
+    }
 }
