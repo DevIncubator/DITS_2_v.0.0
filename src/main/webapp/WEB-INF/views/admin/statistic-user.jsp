@@ -10,7 +10,7 @@
 
     <tr>
         <th>User FIO</th>
-        <th>Answers</th>
+        <th>Questions</th>
         <th>Correct</th>
         <th>Incorrect</th>
     </tr>

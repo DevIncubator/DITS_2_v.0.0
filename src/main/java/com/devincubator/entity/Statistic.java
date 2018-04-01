@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "statistic")
-public class Statistic {
+public class  Statistic {
 
     @Id
     @GeneratedValue
