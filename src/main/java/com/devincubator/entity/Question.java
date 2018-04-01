@@ -14,15 +14,15 @@ import javax.persistence.Entity;
 public class Question implements com.devincubator.entity.Entity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "questionId")
     private Long questionId;
 
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "testId", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "testId")
     private Test test;
 
     public Long getQuestionId() {

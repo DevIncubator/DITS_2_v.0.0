@@ -18,8 +18,8 @@ public class Test implements com.devincubator.entity.Entity {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "topicId", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "topicId")
     private Topic topic;
 
     public Test() {

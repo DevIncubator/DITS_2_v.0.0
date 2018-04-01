@@ -28,7 +28,7 @@
                   p:showSql="true"/>
         </property>
 
-        <property name="jpaProperties">
+        <!--<property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
                 <prop key="hibernate.max_fetch_depth">3</prop>
@@ -37,7 +37,7 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
             </props>
-        </property>
+        </property>-->
 
         <property name="packagesToScan" value="com.devincubator.entity"/>
     </bean>

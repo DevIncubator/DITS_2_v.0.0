@@ -30,4 +30,6 @@ public class AnswerServiceImpl {
         return answerRepository.findByAnswerId(id);
     }
 
+
+
 }

@@ -26,7 +26,7 @@ public class User implements com.devincubator.entity.Entity {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "roleId", nullable = false)
     private Role role;
 

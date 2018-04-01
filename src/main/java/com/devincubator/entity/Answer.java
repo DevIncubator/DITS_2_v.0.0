@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 public class Answer implements com.devincubator.entity.Entity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "answerId")
     private Long answerId;
 
@@ -18,8 +18,8 @@ public class Answer implements com.devincubator.entity.Entity {
     @Column(name = "correct")
     private boolean correct;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "questionId", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "questionId")
     private Question question;
 
     public Long getAnswerId() {

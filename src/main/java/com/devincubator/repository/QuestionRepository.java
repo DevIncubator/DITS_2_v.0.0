@@ -15,4 +15,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     List<Question> findByTest(Test test);
 
+
+
 }

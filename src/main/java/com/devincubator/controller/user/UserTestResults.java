@@ -72,15 +72,14 @@ public class UserTestResults {
             checkedAnswerResult.add(answer);
         }
         for(Answer answer : checkedAnswerResult){
+            Question q = questionService.findByQuestionId(answer.getQuestion().getQuestionId());
             if(answer.isCorrect()){
-                Question q = answer.getQuestion();
                 System.out.println("QUESTION IS RIGHT: " + q);
                 userCorrectAnswers++;
                statisticService.addQuestionCorrect(q, true);
                 System.out.println("Question: " + q);
             }
             else{
-                Question q = answer.getQuestion();
                 statisticService.addQuestionCorrect(q, false);
             }
         }
