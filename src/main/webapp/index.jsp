@@ -8,10 +8,10 @@
 <body>
 <div class="login-page">
     <div class="form">
-        <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button>login</button>
+        <form class="login-form" action="/login" method="post">
+            <input type="text" name="username" placeholder="username"/>
+            <input type="password" name="password" placeholder="password"/>
+            <input name="submit" type="submit" value="submit" />
         </form>
     </div>
 </div>
