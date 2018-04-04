@@ -12,7 +12,7 @@
 <h1>Create Test</h1>
 
 <div class="form">
-    <form:form class="login-form" method="POST" action="/create-test" modelAttribute="topicTestDTO">
+    <form:form class="login-form" method="POST" action="/admin/create-test" modelAttribute="topicTestDTO">
         <form:input path="topic.name" type="text" list="topics" placeholder="choose or create topic" required="true"/>
         <datalist id="topics">
             <c:forEach items="${topicList}" var="topic">

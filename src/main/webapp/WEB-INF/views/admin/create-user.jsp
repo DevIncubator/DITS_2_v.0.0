@@ -11,7 +11,7 @@
 <h1>Create User</h1>
 
 <div class="form">
-    <form:form class="login-form" method="POST" action="/create-user" modelAttribute="usermodel">
+    <form:form class="login-form" method="POST" action="/admin/create-user" modelAttribute="usermodel">
         Role: <form:select path="role" items="${roleNames}" required="true"/>
         First name: <form:input path="firstName" type="text"/>
         Last name: <form:input path="lastName" type="text"/>
@@ -21,7 +21,7 @@
     </form:form>
 </div>
 
-<form action="/admin-home">
+<form action="admin/admin-home">
     <button class="admin-button">Back</button>
 </form>
 </body>

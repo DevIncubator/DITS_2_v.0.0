@@ -14,6 +14,7 @@ import java.util.List;
  * Created by Dmitry on 16.03.2018.
  */
 @Controller
+@RequestMapping(value = "/admin")
 public class StatisticTestPageController {
 
     @Autowired

@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.Set;
 /**
  * Created by Dmitry on 28.03.2018.
  */
-//@Service("customUserDetailService")
+@Service("customUserDetailService")
 @Transactional
 public class CustomUserDetailService implements UserDetailsService {
 
@@ -40,7 +41,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     private List<GrantedAuthority> buildUserAuthority(User user) {
         Set<GrantedAuthority> setAuths = new HashSet<>();
-        setAuths.add(new SimpleGrantedAuthority(user.getRole().getRole().getName().toUpperCase()));
+        setAuths.add(new SimpleGrantedAuthority("ROLE_" + user.getRole().getRole().getName().toUpperCase()));
         List<GrantedAuthority> result = new ArrayList<>(setAuths);
         return result;
     }

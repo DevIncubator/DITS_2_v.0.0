@@ -18,6 +18,7 @@ import java.util.List;
  * Created by Dmitry on 05.03.2018.
  */
 @Controller
+@RequestMapping(value = "/admin")
 public class CreateUserPageController {
 
     @Autowired

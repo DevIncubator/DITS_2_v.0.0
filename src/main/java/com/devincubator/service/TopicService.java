@@ -10,12 +10,12 @@ import java.util.Optional;
  */
 public interface TopicService {
 
-    public List<Topic> getAll();
+    List<Topic> getAll();
 
-    public Topic create(Topic topic);
+    Topic create(Topic topic);
 
-    public Topic findByTopicId(Long topicId);
+    Topic findByTopicId(Long topicId);
 
-    public Topic findByName(String name);
+    Topic findByName(String name);
 
 }

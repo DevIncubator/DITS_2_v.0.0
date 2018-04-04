@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>Hello, Admin! what will you do?</h1>
-    <form action="/create-test">
+    <form action="admin/create-test">
         <button class="admin-button">Create test</button>
     </form>
-    <form action="/create-user">
+    <form action="admin/create-user">
         <button class="admin-button">Create user</button>
     </form>
-    <form action="/statistic">
+    <form action="admin/statistics">
         <button class="admin-button">Statistics</button>
     </form>
 </body>
