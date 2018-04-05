@@ -2,6 +2,7 @@ package com.devincubator.service;
 
 import com.devincubator.entity.User;
 import com.devincubator.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ import java.util.Set;
 @Transactional
 public class CustomUserDetailService implements UserDetailsService {
 
+    @Autowired
     private UserRepository userRepository;
 
     public CustomUserDetailService(UserRepository userRepository) {

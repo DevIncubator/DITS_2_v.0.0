@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Test: ${testName} </h1>
-<form action="/getTestResults" method="post">
+<form action="/user/getTestResults" method="post">
             <c:forEach items="${map}" var="entry">
                 <br>
             Question:

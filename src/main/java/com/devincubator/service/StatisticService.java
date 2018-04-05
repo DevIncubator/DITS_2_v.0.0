@@ -2,6 +2,7 @@ package com.devincubator.service;
 
 import com.devincubator.entity.Question;
 import com.devincubator.entity.Statistic;
+import com.devincubator.entity.User;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ public interface StatisticService {
 
     public Statistic create(Statistic statistic);
 
-    public void addQuestionCorrect(Question question, boolean correct);
+    public List<Statistic> findByUser(User user);
+
+    public void addQuestionCorrect(User userId, Question question, boolean correct);
 }

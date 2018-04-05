@@ -31,10 +31,11 @@ public class  Statistic {
     @JoinColumn(name = "userId")
     private User user;
 
-    public Statistic(Question question, Date date, boolean correct){
+    public Statistic(User user, Question question, Date date, boolean correct){
         this.question = question;
         this.correct = correct;
         this.date = date;
+        this.user = user;
     }
 
     public Statistic(){}

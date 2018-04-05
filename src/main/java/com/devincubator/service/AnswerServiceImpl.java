@@ -4,7 +4,6 @@ package com.devincubator.service;
 import com.devincubator.entity.Answer;
 import com.devincubator.entity.Question;
 import com.devincubator.repository.AnswerRepository;
-import com.devincubator.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

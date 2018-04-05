@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping(value = "/user")
 public class UserTopicTestController {
 
     TopicServiceImpl topicService;

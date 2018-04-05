@@ -7,13 +7,15 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
+<center>
     <h1>Choose</h1>
-    <form action="/getUserTopics">
+    <form action="/user/getUserTopics">
         <button class="user-button">Test</button>
     </form>
 
-    <form action="/statistic">
+    <form action="/getStatistic">
         <button class="user-button">Statistics</button>
     </form>
+</center>
 </body>
 </html>

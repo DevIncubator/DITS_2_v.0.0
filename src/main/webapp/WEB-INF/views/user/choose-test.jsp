@@ -13,7 +13,7 @@
 <h1>Choose test</h1>
 
 <label for="choose_test">Select Test:</label>
-<form action="/start-test">
+<form action="/user/start-test">
 <select name="test" id="choose_test" list="test_list">
     <datalist id="test_list">
 
@@ -27,7 +27,7 @@
         <button class="user-button">Submit</button>
     </form>
 </form>
-<form action="/getUserTopics">
+<form action="/user/getUserTopics">
     <button class="user-button">Back</button>
 </form>
 </body>

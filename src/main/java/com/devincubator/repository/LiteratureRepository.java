@@ -1,6 +1,6 @@
 package com.devincubator.repository;
 
-import com.devincubator.entity.Answer;
+import com.devincubator.entity.Literature;
 import com.devincubator.entity.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,11 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AnswerRepository extends JpaRepository<Answer, Long> {
+public interface LiteratureRepository extends JpaRepository<Literature, Long> {
 
-    List<Answer> findByQuestion(Question question);
+    List<Literature> findByQuestion(Question question);
 
-    Answer findByAnswerId(Long id);
-
-//    Question findByQuestion
 }

@@ -11,9 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
-
-import static java.lang.Math.random;
 
 /**
  * Created by Dmitry on 16.03.2018.
@@ -39,9 +36,14 @@ public class StatisticServiceImpl implements StatisticService {
         return statisticRepository.save(statistic);
     }
 
-    public void addQuestionCorrect(Question question, boolean correct){
+
+    public void addQuestionCorrect(User user, Question question, boolean correct){
         Date date = new Date();
-        Statistic statistic = new Statistic(question, date, correct);
+        Statistic statistic = new Statistic(user, question, date, correct);
         statisticRepository.save(statistic);
+    }
+
+    public List<Statistic> findByUser(User user){
+        return statisticRepository.findByUser(user);
     }
 }

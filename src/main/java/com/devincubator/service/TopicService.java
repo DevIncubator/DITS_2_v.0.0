@@ -3,7 +3,6 @@ package com.devincubator.service;
 import com.devincubator.entity.Topic;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by Dmitry on 25.02.2018.

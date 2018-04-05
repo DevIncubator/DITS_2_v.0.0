@@ -13,7 +13,7 @@
 <h1>Choose topic</h1>
 
 <label for="choose_topic">Select Topic:</label>
-<form action="/getTestByTopicId">
+<form action="/user/getTestByTopicId">
 <select  name="topic" id="choose_topic" list="topic_list">
     <datalist id="topic_list">
         <option  value="0">-chooseTopic-</option>

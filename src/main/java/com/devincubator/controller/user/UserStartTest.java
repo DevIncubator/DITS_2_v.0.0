@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@RequestMapping(value = "/user")
 public class UserStartTest {
 
     QuestionServiceImpl questionService;
@@ -32,7 +33,6 @@ public class UserStartTest {
 
     TestServiceImpl testService;
 
-    int x = 1;
     private List<Question> questions;
 
     @Autowired
