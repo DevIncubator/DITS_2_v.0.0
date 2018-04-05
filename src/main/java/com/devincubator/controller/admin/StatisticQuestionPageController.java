@@ -14,13 +14,12 @@ import java.util.List;
  * Created by Dmitry on 27.03.2018.
  */
 @Controller
-@RequestMapping(value = "/admin")
 public class StatisticQuestionPageController {
 
     @Autowired
     private QuestionStatisticServiceImpl questionStatisticServiceImpl;
 
-    @RequestMapping(value = "/statistics-questions", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/statistics-questions", method = RequestMethod.GET)
     public ModelAndView showViews() {
         ModelAndView model = new ModelAndView("admin/statistic-questions");
         List<QuestionStatistic> questionStatistic = questionStatisticServiceImpl.getAll();

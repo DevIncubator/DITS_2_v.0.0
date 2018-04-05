@@ -20,6 +20,7 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping("/tutor")
 public class TutorPageController {
 
     @Autowired
@@ -28,7 +29,7 @@ public class TutorPageController {
     @Autowired
     private QuestionService questionService;
 
-    @RequestMapping(value = "/tutor", method = RequestMethod.GET)
+    @RequestMapping(value = "/tutor-main-page", method = RequestMethod.GET)
     public ModelAndView showForm() {
         ModelAndView model = new ModelAndView("tutor/tutor-main-page");
         return model;

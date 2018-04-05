@@ -17,5 +17,23 @@
     <form action="admin/statistics">
         <button class="admin-button">Statistics</button>
     </form>
+   <form action="/logout" method="POST">
+        <button class="admin-button">logout</button>
+    </form>
+
+<%--    <div class="container">
+
+        <c:if test="${pageContext.request.userPrincipal.name != null}">
+            <form id="logoutForm" method="POST" action="/logout">
+                <button class="admin-button">logout</button>
+            </form>
+
+            <h5>Welcome ${pageContext.request.userPrincipal.name} | <button onclick="document.forms['logoutForm'].submit()">Logout</button>
+            </h5>
+
+        </c:if>
+
+
+    </div>--%>
 </body>
 </html>

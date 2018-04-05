@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
 @Configuration
 @EnableWebSecurity
@@ -53,17 +54,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**","/admin-home").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/tutor/**","/tutor").access("hasRole('ROLE_TUTOR')")
                 .antMatchers("/user/**","/user-home").access("hasRole('ROLE_USER')")
-                .antMatchers("/").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin().loginPage("/login")
                 .usernameParameter("username").passwordParameter("password")
-                .defaultSuccessUrl("/admin-home", true)
+                .defaultSuccessUrl("/redirect", true)
                 .and()
-                .logout().logoutSuccessUrl("/login?logout")
+                .logout().logoutSuccessUrl("/")
                 .and()
-                .exceptionHandling().accessDeniedPage("/index")
-                .and()
-                .csrf().disable();
+                .csrf().disable()
+                .exceptionHandling()
+                .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"));
+
     }
 }

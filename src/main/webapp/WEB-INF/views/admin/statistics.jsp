@@ -8,13 +8,13 @@
 </head>
 <body>
 <h1>Choose statistic page</h1>
-<form action="/statistics-test">
+<form action="/admin/statistics-test">
     <button class="admin-button">Tests statistics</button>
 </form>
-<form action="/statistics-user">
+<form action="/admin/statistics-user">
     <button class="admin-button">User statistics</button>
 </form>
-<form action="/statistics-questions">
+<form action="/admin/statistics-questions">
     <button class="admin-button">Question statistics</button>
 </form>
 <form action="/admin-home">

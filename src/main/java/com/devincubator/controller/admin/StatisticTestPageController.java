@@ -14,13 +14,12 @@ import java.util.List;
  * Created by Dmitry on 16.03.2018.
  */
 @Controller
-@RequestMapping(value = "/admin")
 public class StatisticTestPageController {
 
     @Autowired
     private TestStatisticServiceImpl testStatisticServiceImpl;
 
-    @RequestMapping(value = "/statistics-test", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/statistics-test", method = RequestMethod.GET)
     public ModelAndView showViews() {
         ModelAndView model = new ModelAndView("admin/statistic-test");
         List<TestStatistic> testStatistic = testStatisticServiceImpl.getAll();

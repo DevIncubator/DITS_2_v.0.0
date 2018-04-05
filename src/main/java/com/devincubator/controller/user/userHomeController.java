@@ -5,7 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class userHomeController {
+@RequestMapping("/user")
+public class UserHomeController {
 
     @RequestMapping("/user-home")
     public String userHome(Model model){

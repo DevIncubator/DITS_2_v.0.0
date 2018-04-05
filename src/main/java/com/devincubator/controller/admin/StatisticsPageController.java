@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Dmitry on 28.02.2018.
  */
 @Controller
-@RequestMapping(value = "/admin")
+@RequestMapping("/admin")
 public class StatisticsPageController {
     @RequestMapping(value = "/statistics", method = RequestMethod.GET)
     public ModelAndView showViews() {
