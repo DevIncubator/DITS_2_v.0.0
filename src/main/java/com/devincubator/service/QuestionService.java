@@ -15,4 +15,5 @@ public interface QuestionService {
 
     Question findByQuestionId(Long questionId);
 
+    Question findByDescription(String description);
 }

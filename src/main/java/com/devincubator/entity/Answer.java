@@ -22,6 +22,14 @@ public class Answer implements com.devincubator.entity.Entity {
     @JoinColumn(name = "questionId")
     private Question question;
 
+    public Answer(){}
+
+    public Answer(String description, boolean correct, Question question) {
+        this.correct = correct;
+        this.description = description;
+        this.question = question;
+    }
+
     public Long getAnswerId() {
         return answerId;
     }

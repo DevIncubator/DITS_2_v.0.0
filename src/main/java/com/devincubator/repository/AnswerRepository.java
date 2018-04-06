@@ -14,5 +14,7 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
 
     Answer findByAnswerId(Long id);
 
+    Answer findByDescription(String description);
+
 //    Question findByQuestion
 }

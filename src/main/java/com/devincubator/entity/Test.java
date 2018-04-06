@@ -36,6 +36,10 @@ public class Test implements com.devincubator.entity.Entity {
         this.name = name;
     }
 
+    public Test(String name) {
+        this.name = name;
+    }
+
     public Long getTestId() {
         return testId;
     }

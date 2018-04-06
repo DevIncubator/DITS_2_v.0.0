@@ -30,5 +30,11 @@ public class AnswerServiceImpl {
     }
 
 
+    public Answer findByDescription(String description) {
+        return answerRepository.findByDescription(description);
+    }
 
+    public void addAnswer(Answer answer) {
+        answerRepository.save(answer);
+    }
 }
