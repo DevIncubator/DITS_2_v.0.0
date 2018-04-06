@@ -51,6 +51,7 @@ public class UserTestResults {
                               @RequestParam(value = "checkedAnswers")List<Long> checkedAnswers,
                               @RequestParam(value = "testName")String testName
     ){
+
         model.addAttribute("testName", testName); //просто имя теста, который прошли
         Test thisTest = testService.findByName(testName); //получим сущность теста, для списка вопросов
         List<Question> thisQuestionList = questionService.findByTest(thisTest); //список всех вопросов по тесту
@@ -69,8 +70,6 @@ public class UserTestResults {
         /**
          * соединяем в один список все чекнутые ответы
          * */
-        System.out.println("==============CHECKED ANSWERS" + checkedAnswers);
-        if(checkedAnswers != null) {
             for (Long answers : checkedAnswers) {
                 Answer answer = answerService.findByAnswerId(answers);
                 checkedAnswerResult.add(answer); // список чекнутых ответов
@@ -243,11 +242,6 @@ public class UserTestResults {
         model.addAttribute("questionsWrong", wrongQuestionsDeduped.size());
         model.addAttribute("map", map);
         model.addAttribute("mapLink", mapOfLinks);
-        }
-        else if(checkedAnswers==null)
-        {
-            model.addAttribute("errorTestPass", "ВЫ НЕ ПРОШЛИ ТЕСТ");
-        }
 
         return "user/test-results";
     }

@@ -13,7 +13,7 @@
 <body>
 <div class="form">
 <h1>Test: ${testName} </h1>
-<form action="/user/getTestResults" method="post">
+<form action="/user/getTestResults" method="post" id="thisForm">
             <c:forEach items="${map}" var="entry">
                 <br>
            <h3> <b>Question:</b>
@@ -22,15 +22,30 @@
                     <c:forEach items="${entry.value}" var="answers">
                             <%--<form:checkbox path="map" value="${answers.getDescription()}"/> ${answers.getDescription()}<br>--%>
                         ${answers.getDescription()}
-                        <input type="checkbox" name="checkedAnswers" value="${answers.getAnswerId()}">
+                        <input type="checkbox" name="checkedAnswers" value="${answers.getAnswerId()}" id="checkedAnswers">
                         <br>
                     </c:forEach>
                 <hr><br>
             </c:forEach>
     <input type="hidden" name="testName" value="${testName}">
     <input type="hidden" name="questionListSize" value="${questionListSize}">
-    <button class="user-button">Submit</button>
+    <button class="user-button" onclick="validateTerms()">Submit</button>
 </form>
 </div>
+
+<script>
+    /*function validateTerms(){
+        alert("${testName}");
+        var c=document.getElementById('checkedAnswers');
+        var d=document.getElementById('terms_div');
+        if (c.checked) {
+            alert("GOOOOD");
+        } else {
+            alert("GOOOOOD UNCHECKED");
+            $('form').get(0).setAttribute('action', 'gogogog'); //this works
+        }
+    }*/
+</script>
+
 </body>
 </html>

@@ -14,12 +14,14 @@
 <div class="form">
     <form:form class="login-form" method="POST" action="/admin/create-test" modelAttribute="topicTestDTO">
         <form:input path="topic.name" type="text" list="topics" placeholder="choose or create topic" required="true"/>
-        <%--<datalist id="topics">
+        <datalist id="topics">
             <c:forEach items="${topicList}" var="topic">
                 <option>${topic}</option>
             </c:forEach>
-        </datalist>--%>
+        </datalist>
+        <form:textarea path="topic.description" type="text" placeholder="create topic description"/>
         <form:input path="test.name" type="text" placeholder="input test name" required="true"/>
+        <form:textarea path="test.description" type="text" placeholder="create test description"/>
         <input type="submit"/>
     </form:form>
 </div>

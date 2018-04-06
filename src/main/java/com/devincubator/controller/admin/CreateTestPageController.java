@@ -36,7 +36,8 @@ public class CreateTestPageController {
         List<Topic> topicList = topicService.getAll();
         List<String> topicNames = new ArrayList<>();
         for (Topic topics : topicList) {
-            topicNames.add(topics.getName());
+            if(!(topicNames.contains((topics.getName())))) {
+            topicNames.add(topics.getName());}
         }
         model.addObject("topicList", topicNames);
         return model;
