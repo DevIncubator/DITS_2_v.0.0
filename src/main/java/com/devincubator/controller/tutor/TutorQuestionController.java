@@ -23,6 +23,7 @@ import static com.devincubator.controller.admin.CreateTestPageController.getMode
 @RequestMapping("/tutor")
 public class TutorQuestionController {
 
+    private Question thisQuestion;
     private TopicService topicService;
     private TestService testService;
     private QuestionServiceImpl questionService;
@@ -97,15 +98,15 @@ public class TutorQuestionController {
             if(buffer.equals(question))
                 flag = true;
         }
-        Question questionEntity = questionService.findByDescription(question);
+        thisQuestion = questionService.findByDescription(question);
         if(!flag){
-            Question newQuestion = new Question(question, test);
-            questionService.addQuestion(newQuestion);
-            model.addAttribute("newQuestion", newQuestion);
+            thisQuestion = new Question(question, test);
+            questionService.addQuestion(thisQuestion);
+            model.addAttribute("newQuestion", thisQuestion);
         }
 
 
-        List<Answer> answerList = answerService.findByQuestion(questionEntity);
+        List<Answer> answerList = answerService.findByQuestion(thisQuestion);
 
         model.addAttribute("answerList", answerList);
 
@@ -124,10 +125,14 @@ public class TutorQuestionController {
     @ResponseBody
     public List<Answer> AddAnswer(@ModelAttribute("answerName") String answerName, @ModelAttribute("questionName") String questionName,
                                   @ModelAttribute("correct") boolean correct) {
-        Question question = questionService.findByDescription(questionName);
-        Answer answer = new Answer(answerName, correct,  question);
+        System.out.println("ANSWER-------------" + answerName);
+        System.out.println("ANSWER-------------" + correct);
+        System.out.println("ANSWER-------------" + questionName);
+
+//        Question question = questionService.findByDescription(questionName);
+        Answer answer = new Answer(answerName, correct, thisQuestion);
         answerService.addAnswer(answer);
-        List<Answer> answerList = answerService.findByQuestion(question);
+        List<Answer> answerList = answerService.findByQuestion(thisQuestion);
         return answerList;
     }
 }

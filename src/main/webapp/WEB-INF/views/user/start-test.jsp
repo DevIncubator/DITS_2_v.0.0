@@ -13,7 +13,7 @@
 <body>
 <div class="form">
 <h1>Test: ${testName} </h1>
-<form action="/user/getTestResults" method="post" id="thisForm">
+<form action="/user/getTestResults" method="post" id="thisForm" onsubmit="return checkedd();">
             <c:forEach items="${map}" var="entry">
                 <br>
            <h3> <b>Question:</b>
@@ -34,17 +34,13 @@
 </div>
 
 <script>
-    /*function validateTerms(){
-        alert("${testName}");
-        var c=document.getElementById('checkedAnswers');
-        var d=document.getElementById('terms_div');
-        if (c.checked) {
-            alert("GOOOOD");
-        } else {
-            alert("GOOOOOD UNCHECKED");
-            $('form').get(0).setAttribute('action', 'gogogog'); //this works
-        }
-    }*/
+  function checkedd() {
+      var check = $("input:checkbox:checked");
+      if(check.length == 0){
+          alert("ВЫ НЕ ВЫБРАЛИ НИ ОДНОГО ОТВЕТА");
+          return false;
+      }
+  }
 </script>
 
 </body>

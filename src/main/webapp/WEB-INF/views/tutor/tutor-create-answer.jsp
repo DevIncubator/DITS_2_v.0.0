@@ -37,7 +37,7 @@
 <script>
     function addAnswerButton() {
         var answerName = $("#answerInput").val();
-        var  link = window.location.search.split('=');
+        var link = window.location.search.split('=');
         var link1 = link[1].split('&');
         var questionName = link1[0];
         var correct = $('#correct').is(':checked');
@@ -53,7 +53,7 @@
                             $.ajax({
                             type: "get",
                             url: "/tutor/addAnswer",
-                            data: {answerName: answerName, questionName: questionName, correct: correct},
+                            data: {answerName: answerName, correct: correct},
                             contentType:
                                 "application/json; charset=utf-8",
                             success: function (data) {
