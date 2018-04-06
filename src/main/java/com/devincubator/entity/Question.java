@@ -25,6 +25,16 @@ public class Question implements com.devincubator.entity.Entity {
     @JoinColumn(name = "testId")
     private Test test;
 
+    public Question(String description) {
+        this.description = description;
+    }
+    public Question(){}
+    public Question(String description, Test test){
+        this.description = description;
+        this.test = test;
+    }
+
+
     public Long getQuestionId() {
         return questionId;
     }

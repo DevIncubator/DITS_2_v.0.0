@@ -35,4 +35,9 @@ public class QuestionServiceImpl implements QuestionService {
     public Question findByQuestionId(Long questionId) {
         return questionRepository.findByQuestionId(questionId);
     }
+
+    @Override
+    public Question findByDescription(String description) {
+        return questionRepository.findByDescription(description);
+    }
 }

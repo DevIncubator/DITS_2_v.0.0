@@ -28,6 +28,10 @@ public class CreateTestPageController {
 
     @RequestMapping(value = "/create-test", method = RequestMethod.GET)
     public ModelAndView showForm() {
+        return getModelAndView(topicService);
+    }
+
+    public static ModelAndView getModelAndView(TopicService topicService) {
         ModelAndView model = new ModelAndView();
         Topic topic = new Topic();
         Test test = new Test();
