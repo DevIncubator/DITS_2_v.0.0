@@ -19,7 +19,9 @@
                 <option>${topic}</option>
             </c:forEach>
         </datalist>
+        <form:textarea path="topic.description" type="text" placeholder="create topic description"/>
         <form:input path="test.name" type="text" placeholder="input test name" required="true"/>
+        <form:textarea path="test.description" type="text" placeholder="create test description"/>
         <input type="submit"/>
     </form:form>
 </div>

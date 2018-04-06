@@ -21,7 +21,7 @@
     </form:form>
 </div>
 
-<form action="admin/admin-home">
+<form action="/admin-home">
     <button class="admin-button">Back</button>
 </form>
 </body>
