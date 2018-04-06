@@ -69,10 +69,13 @@ public class UserTestResults {
         /**
          * соединяем в один список все чекнутые ответы
          * */
-        for(Long answers : checkedAnswers){
-            Answer answer = answerService.findByAnswerId(answers);
-            checkedAnswerResult.add(answer); // список чекнутых ответов
-        }
+        System.out.println("==============CHECKED ANSWERS" + checkedAnswers);
+        if(checkedAnswers != null) {
+            for (Long answers : checkedAnswers) {
+                Answer answer = answerService.findByAnswerId(answers);
+                checkedAnswerResult.add(answer); // список чекнутых ответов
+            }
+
         /**
          * создаём список всех ответов на все вопросы
          * которые есть в тесте (для создания списка нечекнутых)
@@ -240,6 +243,11 @@ public class UserTestResults {
         model.addAttribute("questionsWrong", wrongQuestionsDeduped.size());
         model.addAttribute("map", map);
         model.addAttribute("mapLink", mapOfLinks);
+        }
+        else if(checkedAnswers==null)
+        {
+            model.addAttribute("errorTestPass", "ВЫ НЕ ПРОШЛИ ТЕСТ");
+        }
 
         return "user/test-results";
     }

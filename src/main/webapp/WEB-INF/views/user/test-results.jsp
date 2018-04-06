@@ -14,12 +14,14 @@
     <title>TEST-RESULTS:</title>
 </head>
 <body>
-
-    <h1>Test name: ${testName}</h1>
+<div class="form">
+    <h1>${errorTestPass}</h1>
+    <h1>${testName}</h1>
     <h2>Result: ${result}%</h2>
         <a href="/redirect">
             <button class="user-button">Начать заново</button>
         </a>
+</div>
        <table class="table table-striped">
         <tr>
             <th>Question</th>
@@ -49,5 +51,6 @@
             </tr>
         </c:forEach>
     </table>
+
 </body>
 </html>

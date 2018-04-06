@@ -10,10 +10,13 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
-<h1>${userName}'s статистика</h1>
+
+<div class="form">
+    <h1>${userName}'s статистика</h1>
 <a href="redirect">
     <button class="user-button">Вернуться</button>
 </a>
+</div>
 <hr>
 <table>
     <tr>

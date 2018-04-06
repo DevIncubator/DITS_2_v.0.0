@@ -11,15 +11,18 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 </head>
 <body>
+<div class="form">
 <h1>Test: ${testName} </h1>
 <form action="/user/getTestResults" method="post">
             <c:forEach items="${map}" var="entry">
                 <br>
-            Question:
-                <c:out value="${entry.key.getDescription()}"/><br>
+           <h3> <b>Question:</b>
+                <c:out value="${entry.key.getDescription()}"/><br><br>
+           </h3>
                     <c:forEach items="${entry.value}" var="answers">
                             <%--<form:checkbox path="map" value="${answers.getDescription()}"/> ${answers.getDescription()}<br>--%>
-                        <input type="checkbox" name="checkedAnswers" value="${answers.getAnswerId()}">${answers.getDescription()}
+                        ${answers.getDescription()}
+                        <input type="checkbox" name="checkedAnswers" value="${answers.getAnswerId()}">
                         <br>
                     </c:forEach>
                 <hr><br>
@@ -28,6 +31,6 @@
     <input type="hidden" name="questionListSize" value="${questionListSize}">
     <button class="user-button">Submit</button>
 </form>
-
+</div>
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.devincubator.controller.user;
 
-import com.devincubator.entity.Question;
 import com.devincubator.entity.Statistic;
 import com.devincubator.entity.User;
 import com.devincubator.service.QuestionServiceImpl;
@@ -25,9 +24,8 @@ public class UserStatisticController {
     UserServiceImpl userService;
     StatisticServiceImpl statisticService;
 
-
     @Autowired
-    UserStatisticController(StatisticServiceImpl statisticService, UserServiceImpl userService, QuestionServiceImpl questionService, TestServiceImpl testService){
+    UserStatisticController(StatisticServiceImpl statisticService, UserServiceImpl userService, QuestionServiceImpl questionService, TestServiceImpl testService) {
         this.questionService = questionService;
         this.testService = testService;
         this.userService = userService;
@@ -35,7 +33,7 @@ public class UserStatisticController {
     }
 
     @RequestMapping(value = "/getStatistic", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    public String userStatistic(Model model){
+    public String userStatistic(Model model) {
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findByLogin(userName);
         String userFirstName = user.getFirstName();
@@ -44,5 +42,4 @@ public class UserStatisticController {
         model.addAttribute("userName", userFirstName);
         return "user/user-statistic";
     }
-
 }

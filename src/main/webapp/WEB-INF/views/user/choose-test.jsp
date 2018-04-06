@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Choose test</h1>
-
+<div class="form">
 <label for="choose_test">Select Test:</label>
 <form action="/user/start-test">
 <select name="test" id="choose_test" list="test_list">
@@ -30,5 +30,6 @@
 <form action="/user/getUserTopics">
     <button class="user-button">Back</button>
 </form>
+</div>
 </body>
 </html>
