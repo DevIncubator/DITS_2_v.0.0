@@ -12,10 +12,7 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -26,6 +23,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/user")
 public class UserStartTest {
+
+    private List<Question> allGlobalQuestions;
 
     QuestionServiceImpl questionService;
 
@@ -56,6 +55,17 @@ public class UserStartTest {
         model.addAttribute("questionListSize", nextQuestion.size());
         return "user/start-test";
     }
+
+    @RequestMapping(value = "/startTestRest", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Question> startTestRest(@RequestBody Test test) {
+
+        allGlobalQuestions = questionService.findByTest(test);
+
+        return allGlobalQuestions;
+    }
+
+
 
   /*  @RequestMapping(value = "/nextQuestion", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public Map<Question, List<Answer>> chooseNextQuestion(@ModelAttribute("counter")int counter){

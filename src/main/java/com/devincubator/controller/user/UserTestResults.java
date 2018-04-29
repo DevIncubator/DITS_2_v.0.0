@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
 import java.util.*;
@@ -28,6 +25,8 @@ public class UserTestResults {
     LiteratureService literatureService;
     LinkServiceImpl linkService;
     UserServiceImpl userService;
+
+
 
     @Autowired
     UserTestResults(LinkServiceImpl linkService, LiteratureService literatureService, UserServiceImpl userService, StatisticServiceImpl statisticService, TestServiceImpl testService, QuestionServiceImpl questionService, AnswerServiceImpl answerService){
@@ -53,10 +52,33 @@ public class UserTestResults {
     ){
 
         model.addAttribute("testName", testName); //просто имя теста, который прошли
-        Test thisTest = testService.findByName(testName); //получим сущность теста, для списка вопросов
-        List<Question> thisQuestionList = questionService.findByTest(thisTest); //список всех вопросов по тесту
-        List<Answer> thisAnswerList = new ArrayList<>();
+        Test thisTest = testService.findByName(testName);
+
         List<Answer> checkedAnswerResult = new ArrayList<>();// здесь будут храниться сущности ответов которые чекнул пользователь
+
+        /**
+         * соединяем в один список все чекнутые ответы
+         * */
+        for (Long answers : checkedAnswers) {
+            Answer answer = answerService.findByAnswerId(answers);
+            checkedAnswerResult.add(answer); // список чекнутых ответов
+        }
+
+        Map<Question, Boolean> map = testResult2(checkedAnswerResult, thisTest); //--------------ВЫЗОВ МЕТОДА--------------
+        int right = 0;
+        int all = 0;
+        List<Question> thisQuestionList = new ArrayList<>();
+        for(Map.Entry<Question, Boolean> entry : map.entrySet()) {
+            thisQuestionList.add(entry.getKey());
+            all++;
+            boolean buffer = entry.getValue();
+            if(buffer)right++;
+        }
+
+        double resultInPercent = ((double)right/map.size())*100;
+        String formattedResult = new DecimalFormat("#00.00").format(resultInPercent);
+        model.addAttribute("result", formattedResult);
+        model.addAttribute("map", map);
         HashMap<Literature, List<Link>> mapOfLinks = new HashMap<>();
         for(Question q : thisQuestionList){
             List<Literature> buffer = literatureService.findByQuestion(q);
@@ -66,14 +88,17 @@ public class UserTestResults {
             }
 
         }
+        model.addAttribute("mapLink", mapOfLinks);
 
-        /**
-         * соединяем в один список все чекнутые ответы
-         * */
-            for (Long answers : checkedAnswers) {
-                Answer answer = answerService.findByAnswerId(answers);
-                checkedAnswerResult.add(answer); // список чекнутых ответов
-            }
+        return "user/test-results";
+    }
+
+    public Map<Question,  Boolean> testResult2(List<Answer> checkedAnswerResult, Test test) {
+
+         //получим сущность теста, для списка вопросов
+        List<Question> thisQuestionList = questionService.findByTest(test); //список всех вопросов по тесту
+        List<Answer> thisAnswerList = new ArrayList<>();
+
 
         /**
          * создаём список всех ответов на все вопросы
@@ -235,16 +260,25 @@ public class UserTestResults {
             statisticService.addQuestionCorrect(userId, question, false);
             map.put(question, false);
         }
-
-        System.out.println("USER NAME: " + userName);
-        model.addAttribute("result", formattedResult);
-        model.addAttribute("questionsCorrect", correctQuestionsDeduped.size());
-        model.addAttribute("questionsWrong", wrongQuestionsDeduped.size());
-        model.addAttribute("map", map);
-        model.addAttribute("mapLink", mapOfLinks);
-
-        return "user/test-results";
+        return map;
     }
+
+    @RequestMapping(value = "/spisocOtvetov", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Answer> spisocOtvetov(@RequestBody Question question) {
+        List<Answer> answers = answerService.findByQuestion(question);
+        return answers;
+    }
+
+    @RequestMapping(value = "/testResultRest", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public Map<Question, Boolean> testResultRest(@RequestBody List<Answer> checkedAnswerResult) {
+        Answer answer = checkedAnswerResult.get(0);
+        Test test = answer.getQuestion().getTest();
+        return testResult2(checkedAnswerResult, test);
+    }
+
+
 
 }
 

@@ -1,5 +1,7 @@
 package com.devincubator;
 
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -12,8 +14,6 @@ import javax.servlet.ServletRegistration;
 
 @Configuration
 public class WebAppInitializer implements WebApplicationInitializer {
-
-
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext rootContext =

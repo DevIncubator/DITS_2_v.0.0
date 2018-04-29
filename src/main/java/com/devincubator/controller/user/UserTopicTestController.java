@@ -36,6 +36,13 @@ public class UserTopicTestController {
         return "user/choose-topic";
     }
 
+    @RequestMapping(value = "/getUserTopicsRest", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Topic> getTopicsRest() {
+
+        return topicService.getAll();
+    }
+
 
     @RequestMapping(value = "/getTestByTopicId", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public String getTestsByTopicId(Model model, @ModelAttribute("topic") String topicString) {
@@ -44,6 +51,13 @@ public class UserTopicTestController {
 //        model.addAttribute("test", new Test());
         model.addAttribute("testList", testList);
         return "user/choose-test";
+    }
+
+    @RequestMapping(value = "/getTestByTopicIdRest", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Test> getTestsByTopicRest(@RequestBody Topic topic) {
+
+        return testService.findByTopic(topic);
     }
 
 
