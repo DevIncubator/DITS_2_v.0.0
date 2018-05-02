@@ -59,9 +59,7 @@ public class UserStartTest {
     @RequestMapping(value = "/startTestRest", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public List<Question> startTestRest(@RequestBody Test test) {
-
         allGlobalQuestions = questionService.findByTest(test);
-
         return allGlobalQuestions;
     }
 

@@ -39,7 +39,6 @@ public class UserTopicTestController {
     @RequestMapping(value = "/getUserTopicsRest", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public List<Topic> getTopicsRest() {
-
         return topicService.getAll();
     }
 
@@ -56,7 +55,6 @@ public class UserTopicTestController {
     @RequestMapping(value = "/getTestByTopicIdRest", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public List<Test> getTestsByTopicRest(@RequestBody Topic topic) {
-
         return testService.findByTopic(topic);
     }
 

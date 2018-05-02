@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,5 +44,13 @@ public class UserStatisticController {
         model.addAttribute("statList", statList);
         model.addAttribute("userName", userFirstName);
         return "user/user-statistic";
+    }
+
+    @RequestMapping(value = "/getUserStatisticRest", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Statistic> getUserStatisticRest(){
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findByLogin(userName);
+        return statisticService.findByUser(user);
     }
 }
